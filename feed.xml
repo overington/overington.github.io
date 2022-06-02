@@ -4,8 +4,17 @@
         <description><![CDATA[Samuel Overington]]></description>
         <link>https://oh-.github.io</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 02 Jun 2022 10:22:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 02 Jun 2022 11:02:38 GMT</lastBuildDate>
         <atom:link href="https://oh-.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Shopping Bags]]></title>
+            <description><![CDATA[What are shopping bags?]]></description>
+            <link>/posts/ideas-shopping-bag</link>
+            <guid isPermaLink="true">/posts/ideas-shopping-bag</guid>
+            <category><![CDATA[ideas]]></category>
+            <dc:creator><![CDATA[Samuel Overington]]></dc:creator>
+            <pubDate>Thu, 02 Jun 2022 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Markdown Examples]]></title>
             <description><![CDATA[View examples of all possible Markdown options.]]></description>
@@ -21,7 +30,7 @@
             <link>/posts/pages</link>
             <guid isPermaLink="true">/posts/pages</guid>
             <category><![CDATA[web development]]></category>
-            <dc:creator><![CDATA[You]]></dc:creator>
+            <dc:creator><![CDATA[Samuel Overington]]></dc:creator>
             <pubDate>Thu, 18 Mar 2021 00:00:00 GMT</pubDate>
         </item>
     </channel>
