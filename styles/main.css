@@ -25,6 +25,13 @@ body {
   font-variant: common-ligatures contextual;
   letter-spacing: -0.02em;
 }
+
+.container {
+  background-color: hsl(57, 46%, 98%);
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
 b,
 strong,
 h3,
