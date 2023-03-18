@@ -9,12 +9,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "almace-scaffolding": "sparanoid/almace-scaffolding#v2.0.24",
+    "eslint-config-next": "^13.2.4",
     "gray-matter": "^4.0.2",
-    "next": "latest",
-    "nextra": "^2.0.0-beta.5",
-    "nextra-theme-blog": "^0.1.5",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "next": "^12.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rss": "^1.2.2"
   },
   "prettier": {
