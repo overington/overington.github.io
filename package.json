@@ -1,21 +1,30 @@
 {
-  "name": "oh-Blog",
+  "name": "Samuel Overington",
   "version": "0.0.1",
   "author": "Samuel Overington <s.c.overington@gmail.com>",
   "license": "GPL-2.0-only",
   "scripts": {
-    "dev": "next",
-    "build": "node ./scripts/gen-rss.js && next build && next export",
-    "start": "next start"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "almace-scaffolding": "sparanoid/almace-scaffolding#v2.0.24",
-    "eslint-config-next": "^13.2.4",
-    "gray-matter": "^4.0.2",
-    "next": "^12.1.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "rss": "^1.2.2"
+    "@types/node": "18.15.3",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "next": "13.2.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sass": "^1.59.3",
+    "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "almace-scaffolding": "sparanoid/almace-scaffolding",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint": "8.36.0",
+    "eslint-config-next": "13.2.4",
+    "prettier": "^2.8.4"
   },
   "prettier": {
     "arrowParens": "always",
