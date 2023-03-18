@@ -1,8 +1,8 @@
 {
-  "name": "Samuel Overington",
-  "version": "0.0.1",
+  "name": "overington-blog",
+  "version": "0.0.2",
   "author": "Samuel Overington <s.c.overington@gmail.com>",
-  "license": "GPL-2.0-only",
+  "license": "CC-BY-NC-ND-4.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
