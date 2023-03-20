@@ -1,8 +1,12 @@
 import React from "react";
 import Link from "next/link";
 
-export function Footer(props: { children: React.ReactNode }) {
-  return <footer>{props.children}</footer>;
+export function Footer(props: { children?: React.ReactNode }) {
+
+  return ( <footer>
+    {props.children}
+    theme based off 
+  </footer> );
 }
 // main Nextjs Nav component
 
@@ -17,7 +21,6 @@ export function Nav(props: { navItems: NavItem[] }) {
   return (
     <nav className="navigation">
       <ul>
-        {/* li element for each navItem */}
         {navItems.map((navItem) => (
           <li key={navItem.name}>
             <Link href={navItem.href}>{navItem.name}</Link>
@@ -46,13 +49,13 @@ export type PostItem = {
 };
 
 export function Post(props: {
-  header: React.ReactNode;
+  header?: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
     <main className="content">
       <article>
-        <header>{props.header}</header>
+        {props.header && <header>{props.header}</header>}
         <div className="post-content">{props.children}</div>
       </article>
     </main>
