@@ -1,30 +1,25 @@
 import Image from 'next/image'
-import { MainNav, Post, Footer } from "@/components/Content";
-import profilePic from "@/images/_site/me.jpg";
-
+import { MainNav, Post, Footer } from '@/components/Content'
+import profilePic from '@/images/_site/me.jpg'
 
 export default function Home() {
   return (
     <>
-    <MainNav />
-    <Post
-    header={<MainHeader />}>
-    </Post>
-    <Footer />
+      <MainNav />
+      <Post header={<MainHeader />}>
+        tmp
+      </Post>
+      <Footer />
     </>
-  );
+  )
 }
 
 export function MainHeader() {
   return (
     <>
-      <Image
-      alt="Samuel Overington"
-      src={profilePic} />
+      <Image alt="Samuel Overington" src={profilePic} />
       <h1>Samuel Overington</h1>
-      <h2>
-        Software Engineer | Artist
-      </h2>
+      <h2>Software Engineer | Artist</h2>
     </>
-  );
+  )
 }
