@@ -1,0 +1,21 @@
+main:
+  - href: '/'
+    text: Home
+  - href: '/blog'
+    text: Thoughts
+  - href: '/gallery'
+    text: Gallery
+  - href: '/projects'
+    text: Projects
+  - href: '/cv'
+    text: CV
+
+footer:
+  - href: "https://twitter.com/overington"
+    text: "@overington"
+  - href: "https://github.com/overington"
+    text: Github
+  - href: "https://www.linkedin.com/in/scoverington/"
+    text: LinkedIn
+  - href: "mailto:s.c.overington@gmail.com"
+    text: email

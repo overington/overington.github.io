@@ -1,8 +1,16 @@
 import React from 'react'
 import Link from 'next/link'
-import footer_menu from '@/_content/footer-menu.json'
+import siteMenus from '@/_content/site-menus.yaml'
+
+// main Nextjs Nav component
+
+export type NavItem = {
+  text: string
+  href: string
+}
 
 export function Footer(props: { children?: React.ReactNode }) {
+  const footer_menu: NavItem[] = siteMenus.footer
   return (
     <footer className="footer">
       {props.children}
@@ -16,12 +24,6 @@ export function Footer(props: { children?: React.ReactNode }) {
     </footer>
   )
 }
-// main Nextjs Nav component
-
-export type NavItem = {
-  name: string
-  href: string
-}
 
 export function Nav(props: { navItems: NavItem[] }) {
   const { navItems } = props
@@ -30,8 +32,8 @@ export function Nav(props: { navItems: NavItem[] }) {
     <nav className="navigation">
       <ul className="menu">
         {navItems.map((navItem) => (
-          <li key={navItem.name}>
-            <Link href={navItem.href}>{navItem.name}</Link>
+          <li key={navItem.text}>
+            <Link href={navItem.href}>{navItem.text}</Link>
           </li>
         ))}
       </ul>
@@ -40,15 +42,9 @@ export function Nav(props: { navItems: NavItem[] }) {
 }
 
 export function MainNav() {
-  const navItems: NavItem[] = [
-    { name: '/', href: '/' },
-    { name: 'Thoughts', href: '/blog' },
-    { name: 'Gallery', href: '/gallery' },
-    { name: 'Projects', href: '/projects' },
-    { name: 'CV', href: '/cv' }
-  ]
+  const mainNavItems: NavItem[] = siteMenus.main
 
-  return <Nav navItems={navItems} />
+  return <Nav navItems={mainNavItems} />
 }
 
 export type PostItem = {
