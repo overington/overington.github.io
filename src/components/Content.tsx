@@ -4,13 +4,13 @@ import siteMenus from '@/_content/site-menus.yaml'
 
 // main Nextjs Nav component
 
-export type NavItem = {
+export type menuItem = {
   text: string
   href: string
 }
 
 export function Footer(props: { children?: React.ReactNode }) {
-  const footer_menu: NavItem[] = siteMenus.footer
+  const footer_menu: menuItem[] = siteMenus.footer
   return (
     <footer className="footer">
       {props.children}
@@ -25,11 +25,12 @@ export function Footer(props: { children?: React.ReactNode }) {
   )
 }
 
-export function Nav(props: { navItems: NavItem[] }) {
-  const { navItems } = props
+// Nav component for extensible menus, taking in menuItems[], and optional nav class
 
+export function Nav({navItems, navClass}: { navItems: menuItem[]; navClass?: string }) {
+  const classes = ['navigation', navClass].filter(Boolean).join(' ')
   return (
-    <nav className="navigation">
+    <nav className={classes}>
       <ul className="menu">
         {navItems.map((navItem) => (
           <li key={navItem.text}>
@@ -42,9 +43,9 @@ export function Nav(props: { navItems: NavItem[] }) {
 }
 
 export function MainNav() {
-  const mainNavItems: NavItem[] = siteMenus.main
+  const mainMenu: menuItem[] = siteMenus.main
 
-  return <Nav navItems={mainNavItems} />
+  return <Nav navItems={mainMenu} />
 }
 
 export type PostItem = {
