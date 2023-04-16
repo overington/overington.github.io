@@ -27,11 +27,24 @@ I am a ML engineer, with a background in visual and participatory art. I am curr
 
 
 
-
 ## Tasks
 
+site-menus.yaml:
+- format: manu_name: [title, [href | slug]]
+- [ ] make the menu reader function convert a slug to a href
+    - not sure how to do this yet
+    - temporary fix - create a function which builds the url - @/lib/url.ts
+        - takes in a menuItem object
+        - returns a url string
+
+### markdown rendering
+- [ ] 
+
+
+### UI:
 - [x] create a basic layout
 - [ ] find a profile image, and make it fit
+
 
 ### blog / Thoughts:
 
@@ -42,7 +55,7 @@ A place to write down my thoughts, research and learning. and link to individual
 
 
 ### Gallery: 
-
+- [ ] design gallery layout
 
 ### projects:
 

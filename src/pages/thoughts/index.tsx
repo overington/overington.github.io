@@ -4,9 +4,9 @@ import Link from 'next/link'
 
 import { getPostsList } from '@/lib/content'
 import { MainNav, Post, Footer } from '@/components/Content'
-import { menuItem } from '@/components/Content'
+import { type MenuItem, menuItemFactory } from '@/lib/navigation'
 
-export default async function Blog( {posts} : { posts: menuItem[]}) {
+export default function Blog( {posts} : { posts: menuItem[]}) {
     const posts_hc = [
         {
             title: 'post 1',
@@ -30,7 +30,7 @@ export default async function Blog( {posts} : { posts: menuItem[]}) {
 }
 
 
-export async function PostList( props: { posts: menuItem[]}) {
+export function PostList( props: { posts: menuItem[]}) {
     return (
         <>
         <h1>list of posts</h1>

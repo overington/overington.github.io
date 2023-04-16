@@ -1,23 +1,24 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { MainNav, Post, Footer } from '@/components/Content'
+import { Post, Footer } from '@/components/Content'
+import { menuItem } from '@/components/Navigation'
+import { Menu } from '@/components/Navigation'
 import profilePic from '@/images/_site/me.jpg'
 
-export default function Home() {
-  // const header = MainHeader()
+export default function Home(props: {mainMenuItems: menuItem[], footerMenuItems: menuItem[]}) {
+
   return (
     <>
-    <MainNav />
-    <MainHeader />
-      {process.env.HOST}
-      {/* <Post header={header}> */}
-      {/* </Post> */}
-      {/* <Footer /> */}
+    <Menu menuItems={props.mainMenuItems} />
+      <Post header={ <MainHeader /> }>
+        .
+      </Post>
+      <Footer menuItems={props.footerMenuItems}/>
     </>
   )
 }
 
-export async function MainHeader() {
+export function MainHeader() {
   return (
     <>
       <Image alt="samuel overington" src={profilePic} className="profile-avatar"/>
@@ -30,3 +31,26 @@ export async function MainHeader() {
     </>
   )
 }
+
+// import siteMenus from '@/_content/site-menus.yaml'
+import { navItem, navItemFactory } from '@/lib/navigation'
+import { readFile } from 'fs/promises'
+import yaml from 'js-yaml'
+
+export async function getStaticProps() {
+
+  // Read the YAML file
+  const siteMenus = yaml.load(await readFile(
+    process.cwd()+"/src/_content/site-menus.yaml",
+    'utf8'
+    )) as {main: navItem[], footer: navItem[]}
+
+
+  return {
+    props: {
+      mainMenuItems: siteMenus.main.map(navItemFactory),
+      footerMenuItems: siteMenus.footer.map(navItemFactory)
+    }
+  }
+}
+

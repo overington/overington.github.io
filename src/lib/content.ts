@@ -13,16 +13,11 @@ export type postItem = {
   media?: { [key: string]: string }
 }
 
-export type menuItem = {
-    text: string
-} & (
-    { href: string } | { slug: string }
-    )
 
 const POSTS_PATH = process.env.POSTS_PATH || './src/_posts'
-// if in production, use the site url from .env else use localhost
+// // if in production, use the site url from .env else use localhost
 
-const SITE_URL = process.env.NODE_ENV === 'production' ? process.env.SITE_URL : `http://${hostname}:${port}`
+// const SITE_URL = process.env.NODE_ENV === 'production' ? process.env.SITE_URL : `http://${hostname}:${port}`
 
 export async function getPostsList() {
   //   get POSTS_PATH from .env if defined, else use default value of ./src/_posts
