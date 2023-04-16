@@ -1,13 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
 import siteMenus from '@/_content/site-menus.yaml'
+import { menuItem } from '@/lib/content'
+
 
 // main Nextjs Nav component
-
-export type menuItem = {
-  text: string
-  href: string
-}
 
 export function Footer(props: { children?: React.ReactNode }) {
   const footer_menu: menuItem[] = siteMenus.footer
@@ -34,6 +31,8 @@ export function Nav({navItems, navClass}: { navItems: menuItem[]; navClass?: str
       <ul className="menu">
         {navItems.map((navItem) => (
           <li key={navItem.text}>
+            {/* if navItem.href not defined, use slug */}
+            {/* const href ?= navItem.href || navItem.slug */}
             <Link href={navItem.href}>{navItem.text}</Link>
           </li>
         ))}
@@ -43,14 +42,8 @@ export function Nav({navItems, navClass}: { navItems: menuItem[]; navClass?: str
 }
 
 export function MainNav() {
-  const mainMenu: menuItem[] = siteMenus.main
-
-  return <Nav navItems={mainMenu} />
-}
-
-export type PostItem = {
-  slug: string
-  title: string
+  // const mainMenu: menuItem[] = siteMenus.main
+  return <Nav navItems={siteMenus.main} />
 }
 
 export function Post(props: {

@@ -1,8 +1,13 @@
-import Link from 'next/link'
-import { MainNav, Post, Footer } from '@/components/Content'
+import { readdir } from 'fs/promises'
 
-export default function Blog() {
-    const posts = [
+import Link from 'next/link'
+
+import { getPostsList } from '@/lib/content'
+import { MainNav, Post, Footer } from '@/components/Content'
+import { menuItem } from '@/components/Content'
+
+export default async function Blog( {posts} : { posts: menuItem[]}) {
+    const posts_hc = [
         {
             title: 'post 1',
             slug: 'post-1'
@@ -16,18 +21,16 @@ export default function Blog() {
     return (
         <>
         <MainNav />
-        <Post>
+        <Post >
             <PostList posts={posts} />
         </Post>
         <Footer />
         </>
     )
 }
-type PostItem = {
-    title: string,
-    slug: string
-}
-export function PostList( props: { posts: PostItem[]}) {
+
+
+export async function PostList( props: { posts: menuItem[]}) {
     return (
         <>
         <h1>list of posts</h1>
@@ -40,4 +43,16 @@ export function PostList( props: { posts: PostItem[]}) {
         </ul>
         </>
     )
+}
+
+export async function getStaticProps() {
+    // Get list of posts
+    const files: menuItem[]  = await getPostsList()
+    console.log(`files: ${files}`)
+    return {
+        props: {
+            posts: files
+        }
+    }
+
 }

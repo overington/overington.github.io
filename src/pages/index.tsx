@@ -4,18 +4,20 @@ import { MainNav, Post, Footer } from '@/components/Content'
 import profilePic from '@/images/_site/me.jpg'
 
 export default function Home() {
+  // const header = MainHeader()
   return (
     <>
-      <MainNav />
-      <Post header={<MainHeader />}>
-      .
-      </Post>
-      <Footer />
+    <MainNav />
+    <MainHeader />
+      {process.env.HOST}
+      {/* <Post header={header}> */}
+      {/* </Post> */}
+      {/* <Footer /> */}
     </>
   )
 }
 
-export function MainHeader() {
+export async function MainHeader() {
   return (
     <>
       <Image alt="samuel overington" src={profilePic} className="profile-avatar"/>
