@@ -1,5 +1,10 @@
-import Link from 'next/link'
+import { readFile } from 'fs/promises'
+import yaml from 'js-yaml'
+
 import { menuItem } from '@/components/Navigation'
+
+// set from env if available else use default 'path'
+const SITE_MENUS_PATH = process.cwd() + process.env.SITE_MENUS_PATH || process.cwd() + '/site-menus.yaml'
 
 export type navItem ={
     text: string
@@ -8,13 +13,15 @@ export type navItem ={
     basePath?: string
 }
 
-export function navItemFactory( {text, href, slug, basePath} : navItem ): menuItem {
+export function menuItemFactory( {text, href, slug, basePath} : navItem ): menuItem {
     /**
+     * Construct a MenuItem object from a navItem object
+     * 
      * @param text - text to display in the nav item
      * @param href - href to link to
      * @param slug - slug of the page
      * @param basePath - base path of the page
-     * @returns NavItem
+     * @returns MenuItem
      * 
      * if href is defined, return href
      * if slug and optionally basePath are defined return path with format: {HOST}/{basePath}/{slug}
@@ -37,5 +44,16 @@ export function navItemFactory( {text, href, slug, basePath} : navItem ): menuIt
     return {
         text: text,
         href: (href) ? href : [process.env.HOST, basePath, slug].filter(Boolean).join('/')
+    }
+}
+
+// Read the YAML file
+export async function getSiteNavItems(){
+    return yaml.load(await readFile(
+        SITE_MENUS_PATH,
+        'utf8'
+    )) as {
+        main: navItem[],
+        footer: navItem[]
     }
 }
