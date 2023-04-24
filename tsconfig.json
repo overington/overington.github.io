@@ -20,7 +20,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@theme/*": ["./node_modules/almace-scaffolding/_app/assets/themes/curtana/*"]
     }
   },
   "exclude": ["node_modules"],

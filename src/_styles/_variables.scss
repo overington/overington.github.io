@@ -1,0 +1,29 @@
+
+:root {
+    // // Color - text color
+    // only redefining what I need to change to make the lightness work
+
+    // --text-color-h: 318;
+    // --text-color-s: 30%;
+    // --text-color-l: 10%;
+    --text-lightness: 7; // choose number between 1(darkest)-10(lightest)
+    // --text-color-hsl: var(--text-color-h), var(--text-color-s), var(--text-color-l);
+  
+    // --text-color: hsl(var(--text-color-hsl));
+    // --text-color-0: hsla(var(--text-color-hsl), 0);
+    // --text-color-3: hsla(var(--text-color-hsl), .03);
+    // --text-color-5: hsla(var(--text-color-hsl), .05);
+    // --text-color-7: hsla(var(--text-color-hsl), .07);
+    // --text-color-10: hsla(var(--text-color-hsl), .1);
+    // --text-color-20: hsla(var(--text-color-hsl), .2);
+    // --text-color-30: hsla(var(--text-color-hsl), .3);
+    // --text-color-40: hsla(var(--text-color-hsl), .4);
+    // --text-color-50: hsla(var(--text-color-hsl), .5);
+    // --text-color-60: hsla(var(--text-color-hsl), .6);
+    // --text-color-70: hsla(var(--text-color-hsl), .7);
+    // --text-color-80: hsla(var(--text-color-hsl), .8);
+    // --text-color-90: hsla(var(--text-color-hsl), .9);
+    // --text-color-light: hsl(var(--text-color-h), var(--text-color-s), calc(var(--text-color-l) / .9));
+    --text-color-light: hsl(var(--text-color-h), var(--text-color-s), calc(var(--text-color-l) * var(--text-lightness)));
+    // --text-color-dark: hsl(var(--text-color-h), var(--text-color-s), calc(var(--text-color-l) * .9));
+  }

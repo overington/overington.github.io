@@ -5,7 +5,7 @@ import { join } from 'path'
 import matter from 'gray-matter'
 
 // if in production, use the site url from .env else use localhost
-const POSTS_PATH = join(process.cwd(), process.env.POSTS_PATH) || '/src/_posts'
+const POSTS_PATH = process.env.POSTS_PATH ? join(process.cwd(), process.env.POSTS_PATH) : '/src/_posts'
 
 // Types
 export type postItem = {
@@ -13,7 +13,7 @@ export type postItem = {
   slug: string
   // Optional fields
   content?: string
-  // date as string or Date object
+  // Parse date to string
   date?: string
   description?: string
   tags?: string[]
@@ -24,8 +24,8 @@ export type postItem = {
 
 // const SITE_URL = process.env.NODE_ENV === 'production' ? process.env.SITE_URL : `http://${hostname}:${port}`
 
-export async function getPostItems() {
-  const all_posts = await readdir(POSTS_PATH)
+export function getPostItems() {
+  const all_posts = readdir(POSTS_PATH)
     .then((files) =>
       files.map((file) => {
         file.replace(/\.md$/, '')
@@ -37,30 +37,21 @@ export async function getPostItems() {
   return all_posts
 }
 
-export async function getPostBySlug_old(slug: string) {
-  // check to see if file exists
-  if (slug in getPostItems()) {
-    return matter.read(join(POSTS_PATH, `${slug}.md`))
-  } else {
-    // raise Error('File does not exist')
-    console.log(`File ${POSTS_PATH}/${slug}.md' does not exist`)
-    return null
-  }
-}
-function postItemFactory(data: postItem, content: string) : postItem {
-  console.log(`data.date: ${data.date}, typeof: ${typeof data.date}`)
-  return {
-    title: data.title,
-    slug: data.slug,
-    content: content,
-    // if date is a Date object, convert to string, otherwise leave as is
-    date: (typeof data.date === 'object') ? data.date.toISOString() : data.date,
-    description: data.description,
-    // if list of strings (not null), leave as is, otherwise set to null
-    tags: (typeof data.tags === 'object') ? data.tags : null,
-    media: (typeof data.media === 'object') ? data.media : null
-  }
-}
+// export function postItemFactory(data: }, content: string) : postItem {
+//   console.log(`data.date: ${data.date}, typeof: ${typeof data.date}`)
+//   return {
+//     title: data.title,
+//     slug: data.slug,
+//     content: content,
+//     // if date is a Date object, convert to string, otherwise leave as is
+//     date: (typeof data.date === 'object') ? data.date.toISOString() : data.date,
+//     description: data.description,
+//     // if list of strings (not null), leave as is, otherwise set to null
+//     tags: data.tags ? data.tags : null,
+//     // (data.tags && (typeof data.tags === 'object')) ? data.tags : null,
+//     media: (typeof data.media === 'object') ? data.media : null
+//   }
+// }
 /**
  * BELOW: Functions from vercel/next.js/examples/blog-starter
  */
@@ -76,7 +67,10 @@ export function getPostBySlug(slug: string, fields: string[]=[]) : postItem {
   const { data, content } = matter(fileContents)
   
   data.slug = realSlug
-  return postItemFactory(data, content)
+  data.content = content
+  data.date = (typeof data.date === 'object') ? data.date.toISOString() : data.date
+  return data as postItem
+  // return postItemFactory(data, content)
 }
   
 
