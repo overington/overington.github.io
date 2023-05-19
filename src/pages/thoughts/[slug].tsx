@@ -1,44 +1,64 @@
-import Link from 'next/link'
-import matter from 'gray-matter'
-import { MainNav, Post, Footer } from '@/components/Content'
+import { getSiteNavItems, menuItemFactory } from '@/lib/navigation'
+
+import { type menuItem, Menu } from '@/components/Navigation'
+import { type postItem, getAllPosts, getPostBySlug } from '@/lib/content'
+import { Post, Footer } from '@/components/Content'
 
 
-export default function BlogPost({ post} : { post: PostItem}) {
-    const header = postHeader(post)
+export default function BlogPost(props: {
+    mainMenuItems: menuItem[]
+    footerMenuItems: menuItem[]
+    post: postItem
+}) {
     return (
         <>
-        <MainNav />
-        <Post header={header}>
+        <Menu menuItems={props.mainMenuItems} />
+        <Post header={postHeader(props.post)}>
             <p>Here is the post</p>
         
         </Post>
-        <Footer />
+        <Footer menuItems={props.footerMenuItems}/>
         </>
     )
 }
 
-function postHeader(post : {title: string, date: string}) {
+function postHeader(post : postItem) {
+    console.log('postHeader post: ', post)
     return (
         <>
-        <h1>{post.title}</h1>
-        <p>{post.date}</p>
+        <h1>Sample Header</h1>
+        <p>sample date</p>
         </>
     )
 }
-
-export async function getPostBySlug(slug: string) {
-    const raw_post = await import(`@/_posts/${slug}.md`)
-    const post = matter(raw_post.default)
-    console.log(slug)
-
-    return post
-}
-
-export async function getStaticProps( context : { params: { slug: string } }) {
-    const post: postItem = await getPostBySlug(context.params.slug)
-    return {
-    props: {
-        post: post,
-    },
+type Params = {
+    params: {
+      slug: string
     }
-}
+  }
+export async function getStaticProps({params}: Params) {
+    const siteNavItems = await getSiteNavItems()
+    const post = getPostBySlug(params.slug)
+  
+    return {
+      props: {
+        mainMenuItems: siteNavItems.main.map(menuItemFactory),
+        footerMenuItems: siteNavItems.footer.map(menuItemFactory),
+        post: post
+      }
+    }
+  }
+  export async function getStaticPaths() {
+    const posts = getAllPosts(['slug'])
+  
+    return {
+      paths: posts.map((post) => {
+        return {
+          params: {
+            slug: post.slug,
+          },
+        }
+      }),
+      fallback: false,
+    }
+  }

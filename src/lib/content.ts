@@ -57,8 +57,8 @@ export function getPostItems() {
  */
 export function getPostBySlug(slug: string, fields: string[]=[]) : postItem {
   // make sure that the required fields are present
-  if ((!fields.includes('title')) || (!fields.includes('slug'))) {
-    throw new Error('Missing required fields: slug and content')
+  if ((!fields.includes('title')) && (!fields.includes('slug'))) {
+    throw new Error('Missing required fields: title and slug. Fields: ' + fields.join(',') )
   }
 
   const realSlug = slug.replace(/\.md$/, '')
