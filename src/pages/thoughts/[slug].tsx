@@ -38,7 +38,14 @@ type Params = {
   }
 export async function getStaticProps({params}: Params) {
     const siteNavItems = await getSiteNavItems()
-    const post = getPostBySlug(params.slug)
+    // Load post by slug
+    const post = getPostBySlug(params.slug, [
+        'title',
+        'date',
+        'description',
+        'author',
+        'tags'
+    ])
   
     return {
       props: {
@@ -50,6 +57,12 @@ export async function getStaticProps({params}: Params) {
   }
   export async function getStaticPaths() {
     const posts = getAllPosts(['slug'])
+    (if posts === null) {
+      return {
+        paths: [],
+        fallback: false
+      }
+    }
   
     return {
       paths: posts.map((post) => {

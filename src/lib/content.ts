@@ -5,7 +5,7 @@ import { join } from 'path'
 import matter from 'gray-matter'
 
 // if in production, use the site url from .env else use localhost
-const POSTS_PATH = process.env.POSTS_PATH ? join(process.cwd(), process.env.POSTS_PATH) : '/src/_posts'
+const POSTS_PATH = process.env.POSTS_PATH ? join(process.cwd(), process.env.POSTS_PATH) : './src/_posts'
 
 // Types
 export type postItem = {
@@ -18,6 +18,7 @@ export type postItem = {
   description?: string
   tags?: string[]
   media?: { [key: string]: string }
+  author?: string
 }
 
 
@@ -37,28 +38,18 @@ export function getPostItems() {
   return all_posts
 }
 
-// export function postItemFactory(data: }, content: string) : postItem {
-//   console.log(`data.date: ${data.date}, typeof: ${typeof data.date}`)
-//   return {
-//     title: data.title,
-//     slug: data.slug,
-//     content: content,
-//     // if date is a Date object, convert to string, otherwise leave as is
-//     date: (typeof data.date === 'object') ? data.date.toISOString() : data.date,
-//     description: data.description,
-//     // if list of strings (not null), leave as is, otherwise set to null
-//     tags: data.tags ? data.tags : null,
-//     // (data.tags && (typeof data.tags === 'object')) ? data.tags : null,
-//     media: (typeof data.media === 'object') ? data.media : null
-//   }
-// }
-/**
- * BELOW: Functions from vercel/next.js/examples/blog-starter
- */
 export function getPostBySlug(slug: string, fields: string[]=[]) : postItem {
+  /**
+   * Get a post by slug
+   * 
+   * @param slug - slug of the post
+   * @param fields - fields to return
+   * @returns postItem
+   * Functions from https://github.com/vercel/next.js/tree/canary/examples/blog-starter
+   */
   // make sure that the required fields are present
-  if ((!fields.includes('title')) && (!fields.includes('slug'))) {
-    throw new Error('Missing required fields: title and slug. Fields: ' + fields.join(',') )
+  if (!fields.includes('title'))  {
+    throw new Error('Missing required field: title. Fields: ' + fields.join(',') )
   }
 
   const realSlug = slug.replace(/\.md$/, '')
@@ -74,16 +65,32 @@ export function getPostBySlug(slug: string, fields: string[]=[]) : postItem {
 }
   
 
-export function getPostSlugs() {
-  return readdirSync(POSTS_PATH)
+export function getAllPostSlugs() {
+  /**
+   * Get all post slugs in the _posts directory, ignoring files that start with
+   * underscore.
+   *  
+   * @returns string[]
+   * 
+   * example:
+   * getAllPostSlugs() => ['_markdown', 'hello-world']
+   *  
+   */
+  const slugs = readdirSync(POSTS_PATH)
+    .filter((file) => file.endsWith('.md'))
+    .filter((file) => !file.startsWith('_'))
+    .map((file) => file.replace(/\.md$/, ''))
+  return slugs
 }
 
 export function getAllPosts(fields: string[] = []) : postItem[] {
-  const slugs = getPostSlugs()
-  const posts = slugs.map(slug => {
-    console.log(`loading slug: ${slug}`)
-    return getPostBySlug(slug, fields)
-  })
-  
+  /**
+   * Load each 'fields' from all posts in the _posts directory.
+   * 
+   * @param fields - fields to return
+   * @returns postItem[]
+   */
+  const slugs = getAllPostSlugs()
+  const posts: postItem[] = (slugs.length > 0) ? slugs.map((slug) => getPostBySlug(slug, fields)) : []
   return posts
 }
