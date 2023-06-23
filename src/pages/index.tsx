@@ -16,7 +16,7 @@ export default function Home(props: {
   return (
     <>
       <Menu menuItems={props.mainMenuItems} />
-      <Post header={<MainHeader />}>.</Post>
+      <Post header={<MainHeader />}></Post>
       <Footer menuItems={props.footerMenuItems} />
     </>
   )

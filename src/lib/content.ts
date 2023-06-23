@@ -56,7 +56,7 @@ export function getPostBySlug(slug: string, fields: string[]=[]) : postItem {
   const { data, content } = matter(fileContents)
   
   data.slug = realSlug
-  data.content = markdownToHtml(content)
+  data.content = content
   data.date = (typeof data.date === 'object') ? data.date.toISOString() : data.date
   return data as postItem
   // return postItemFactory(data, content)
@@ -119,7 +119,7 @@ export function getTags() : string[] {
 import { remark } from 'remark'
 import html from 'remark-html'
 
-export function markdownToHtml(markdown: string) {
-  const result = remark().use(html).process(markdown)
+export async function markdownToHtml(markdown: string) {
+  const result = await remark().use(html).process(markdown)
   return result.toString()
 }

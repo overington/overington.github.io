@@ -8,3 +8,9 @@
         color: var(--text-color-light)
     }
 }
+
+img.profile-avatar {
+    max-height: 300px;
+    max-width: 300px;
+    margin: 2rem auto 4rem;
+}
