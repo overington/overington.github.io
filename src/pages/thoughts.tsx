@@ -10,11 +10,13 @@ export default function Blog(props: {
   mainMenuItems: menuItem[]
   footerMenuItems: menuItem[]
   postItems: postItem[]
+  heroPost: postItem
 }) {
+  const heroHeader = BlogHeader(props.heroPost)
   return (
     <>
       <Menu menuItems={props.mainMenuItems} />
-      <Post header={<BlogHeader />}>
+      <Post header={heroHeader}>
         <PostList posts={props.postItems} />
       </Post>
       <Footer menuItems={props.footerMenuItems} />
@@ -34,15 +36,13 @@ export function SampleTextColors() {
     </div>
   )
 }
-export function BlogHeader() {
+export function BlogHeader(post: postItem) {
   return (
     <>
-      <small>Here is a subtitle</small>
-      <h1>Hero title post</h1>
-      <h3>Here is a sub-subtitle</h3>
-      <p>
-        I write about things I find interesting, and things I am working on.
-      </p>
+      <small>{post.date}</small>
+      <h1>{post.title}</h1>
+      <h3>{post.description}</h3>
+      <p>{post.content}</p>
     </>
   )
 }
@@ -87,18 +87,28 @@ export function PostList({
 import { getSiteNavItems, menuItemFactory } from '@/lib/navigation'
 
 import { getAllPosts } from '@/lib/content'
+import { get } from 'http'
+
+function getHeroPost(postItems: postItem[]) {
+  // search for most recent hero post in postItems, if not found return null
+  return postItems.find((post) => post.hero) || null
+  
+}
 
 export async function getStaticProps() {
   // Get list of posts
   const siteNavItems = await getSiteNavItems()
   // Get list of posts
   const blogPostItems = getAllPosts(['title', 'slug'])
+  // Get Hero post
+  const blogHeroPost = getHeroPost(blogPostItems) || blogPostItems[0]
 
   return {
     props: {
       mainMenuItems: siteNavItems.main.map(menuItemFactory),
       footerMenuItems: siteNavItems.footer.map(menuItemFactory),
-      postItems: blogPostItems
+      postItems: blogPostItems,
+      heroPost: blogHeroPost
     }
   }
 }

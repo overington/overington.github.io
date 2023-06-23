@@ -5,7 +5,7 @@ import { join } from 'path'
 import matter from 'gray-matter'
 
 // if in production, use the site url from .env else use localhost
-const POSTS_PATH = process.env.POSTS_PATH ? join(process.cwd(), process.env.POSTS_PATH) : './src/_posts'
+import { POSTS_PATH } from '@/lib/constants'
 
 // Types
 export type postItem = {
@@ -19,11 +19,9 @@ export type postItem = {
   tags?: string[]
   media?: { [key: string]: string }
   author?: string
+  hero?: boolean
 }
 
-
-
-// const SITE_URL = process.env.NODE_ENV === 'production' ? process.env.SITE_URL : `http://${hostname}:${port}`
 
 export function getPostItems() {
   const all_posts = readdir(POSTS_PATH)
@@ -58,7 +56,7 @@ export function getPostBySlug(slug: string, fields: string[]=[]) : postItem {
   const { data, content } = matter(fileContents)
   
   data.slug = realSlug
-  data.content = content
+  data.content = markdownToHtml(content)
   data.date = (typeof data.date === 'object') ? data.date.toISOString() : data.date
   return data as postItem
   // return postItemFactory(data, content)
@@ -93,4 +91,35 @@ export function getAllPosts(fields: string[] = []) : postItem[] {
   const slugs = getAllPostSlugs()
   const posts: postItem[] = (slugs.length > 0) ? slugs.map((slug) => getPostBySlug(slug, fields)) : []
   return posts
+}
+
+export function getPostsByTag(tag: string, fields: string[] = []) : postItem[] {
+  /**
+   * Get all posts with a given tag
+   * 
+   * @param tag - tag to filter by
+   * @param fields - fields to return
+   * @returns postItem[]
+   */
+  const posts = getAllPosts(fields).filter((post) => post.tags && post.tags.includes(tag))
+  return posts
+}
+
+export function getTags() : string[] {
+  /**
+   * Get all tags from all posts
+   * 
+   * @returns string[]
+   */
+  const posts = getAllPosts(['tags'])
+  const tags = posts.flatMap((post) => post.tags)
+  return tags
+}
+
+import { remark } from 'remark'
+import html from 'remark-html'
+
+export function markdownToHtml(markdown: string) {
+  const result = remark().use(html).process(markdown)
+  return result.toString()
 }

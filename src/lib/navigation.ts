@@ -4,7 +4,7 @@ import yaml from 'js-yaml'
 import { menuItem } from '@/components/Navigation'
 
 // set from env if available else use default 'path'
-const SITE_MENUS_PATH = process.cwd() + process.env.SITE_MENUS_PATH || process.cwd() + '/site-menus.yaml'
+import { SITE_MENUS_PATH } from '@/lib/constants'
 
 export type navItem ={
     text: string

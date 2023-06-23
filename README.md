@@ -8,11 +8,11 @@ Public profile site
 Landing page. Objective is to give a quick overview of who I am, and what I do.
 
 Overview points:
-- [X] name
-- [X] job title
-- [ ] location
-- [ ] social links
-- [ ] contact links
+- [x] name
+- [x] job title
+- [x] location
+- [x] social links
+- [x] contact links
 - [ ] short bio
 
 #### Short bio
@@ -24,21 +24,16 @@ Overview points:
 I am a ML engineer, with a background in visual and participatory art. I am currently working on a project to combine the two. I am interested in the intersection of art and technology, and how it can be used to create new experiences.
 
 
+### site-menus.yaml:
+- format: manu_name: [title, [href | slug]]
 
 
 
 ## Tasks
 
-site-menus.yaml:
-- format: manu_name: [title, [href | slug]]
-- [ ] make the menu reader function convert a slug to a href
-    - not sure how to do this yet
-    - temporary fix - create a function which builds the url - @/lib/url.ts
-        - takes in a menuItem object
-        - returns a url string
 
 ### markdown rendering
-- [ ] 
+- [x] post page
 
 
 ### UI:
@@ -50,12 +45,22 @@ site-menus.yaml:
 
 A place to write down my thoughts, research and learning. and link to individual posts.
 
-- [ ] blog index page to list all posts
-- [ ] blog post page to display a single post
+**index page**:
+- [x] index page list all posts
+- [ ] index page featured post
+
+**post page**:
+- [x] render post header, title, date
+    - [ ] optional header image
+    - [ ] optional description
+    - [ ] optional hide header?
+- [x] render body
+- 
+
 
 
 ### Gallery: 
-- [ ] design gallery layout
+- [ ] gallery layout slider / grid design
 
 ### projects:
 

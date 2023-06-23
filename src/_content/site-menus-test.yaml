@@ -1,0 +1,22 @@
+---
+main:
+- text: Home
+  slug: "/"
+- text: Thoughts
+  slug: "thoughts"
+- text: Gallery
+  slug: "gallery"
+- text: Projects
+  slug: "projects"
+- text: CV
+  slug: "cv"
+
+footer:
+- text: "@overington"
+  href: https://twitter.com/overington
+- text: Github
+  href: https://github.com/overington
+- text: LinkedIn
+  href: https://www.linkedin.com/in/scoverington/
+- text: email
+  href: mailto:s.c.overington@gmail.com

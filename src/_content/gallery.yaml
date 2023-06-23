@@ -1,0 +1,13 @@
+---
+main:
+- image: /images/_site/bleu_20150206_252.jpg
+  text: "Burgess Park"
+  slug: "/gallery/me"
+- image: /images/folkstone_signs.jpg
+  text: "Folkstone Signs"
+  slug: "/gallery/me"
+- image: /images/london_thames_eve.jpg
+  text: "london thames eve"
+  slug: "/gallery/me"
+- image: /images/windo_bunting.jpg
+  text: "windo bunting"
