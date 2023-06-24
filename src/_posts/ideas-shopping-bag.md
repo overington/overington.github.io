@@ -2,7 +2,7 @@
 title: Shopping Bags
 date: 2022-06-02
 description: What are shopping bags?
-tag: ideas
+tags: [ideas, thoughts, shopping, bags]
 author: Samuel Overington
 ---
 

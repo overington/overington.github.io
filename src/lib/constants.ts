@@ -8,6 +8,7 @@ export const SITE_AUTHOR = process.env.SITE_AUTHOR || 'Next.js Starter'
 // Paths
 export const SITE_MENUS_PATH =process.env.SITE_MENUS_PATH ? join(process.cwd(), process.env.SITE_MENUS_PATH) : join(process.cwd(), 'src/_content/site-menus.yaml')
 export const POSTS_PATH = process.env.POSTS_PATH ? join(process.cwd(), process.env.POSTS_PATH) : join(process.cwd(), './src/_posts')
+export const BLOG_SLUG = 'thoughts'
 
 // Site URL
 export const HOST = process.env.HOST || 'localhost'

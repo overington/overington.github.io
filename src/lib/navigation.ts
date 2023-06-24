@@ -31,8 +31,6 @@ export function menuItemFactory( {text, href, slug, basePath} : navItem ): menuI
      * navItemFactory({'Home'}) => {text: 'Home', href: '/'}
      * navItemFactory({'Tutorial',slug: 'tutorial', basePath: 'blog'}) => {text: 'Tutorial', href: 'https://{HOST}/blog/tutorial'}
     */
-    // if not href or slug, throw error
-    // console.log(`text: ${text}, href: ${href}, slug: ${slug}, basePath: ${basePath}`)
 
     if ( !slug && !href ) {
         throw new Error('href or slug and basePath must be defined')

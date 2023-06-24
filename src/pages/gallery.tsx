@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Post, Footer } from '@/components/Content'
+import { Post, Footer } from "@/components/Layout"
 import { Menu } from '@/components/Navigation'
 import { menuItem } from '@/components/Navigation'
 import profilePic from '@/images/_site/me.jpg'

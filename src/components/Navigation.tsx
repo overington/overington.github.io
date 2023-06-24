@@ -27,3 +27,17 @@ export function Menu({menuItems, navClass}: {menuItems: menuItem[], navClass?: s
     </nav>
     )
 }
+
+export function TagLinks(props: { tags: string[], base?: string }) {
+    const TagLink = (tag: string) => {
+        const href = [props.base, 'tags', tag].join('/')
+        return <span>#<Link href={href}>{tag}</Link>{' '}</span>
+    }
+    const tag_links = props.tags.map((tag) => TagLink(tag))
+
+    return (
+    <div className="tag-links">
+            {tag_links}
+    </div>
+    )
+}
