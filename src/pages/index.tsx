@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Post, Footer } from "@/components/Layout"
 import { Menu } from '@/components/Navigation'
 import { menuItem } from '@/components/Navigation'
-import profilePic from '@/images/_site/me.jpg'
+import profilePic from 'public/images/_site/me.jpg'
 
 // import siteMenus from '@/_content/site-menus.yaml'
 import { getSiteNavItems, menuItemFactory } from '@/lib/navigation'

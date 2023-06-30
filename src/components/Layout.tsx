@@ -46,20 +46,18 @@ export function HeaderLayout(props: {
   subtitle?: string
   media?: mediaItem[]
 }) {
-  // 
+  //
   return (
     <div className="header-layout">
       {props.pre_title && <small>{props.pre_title}</small>}
       <h1>{props.title}</h1>
-      {props.subtitle && <h3>{props.subtitle}</h3>}
-      {props.children && <>{props.children}</>}
+      <div className="title">
+        {props.subtitle && <h3>{props.subtitle}</h3>}
+        {props.children && <>{props.children}</>}
+      </div>
       {props.media && (
         <div className="media">
           {props.media.map((media, i) => (
-            <>
-            {/* <img src={media.href} alt={media.alt + " img"} /> */}
-            <p>{media.href}</p>
-            
             <Image
               key={i}
               src={media.href}
@@ -67,7 +65,6 @@ export function HeaderLayout(props: {
               width={media.width || 500}
               height={media.height || 500}
             />
-            </>
           ))}
         </div>
       )}

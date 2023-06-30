@@ -19,6 +19,18 @@
     }
 }
 
+.header-layout {
+    .media, .title {
+        float: left;
+        width: 50%;
+    }
+    img {
+        max-height: 500px;
+        width: auto;
+        margin: 2rem auto;
+    }
+}
+
 img.profile-avatar {
     max-height: 300px;
     max-width: 300px;
