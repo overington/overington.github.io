@@ -1,9 +1,12 @@
 ---
 title: Shopping Bags
 date: 2022-06-02
-description: What are shopping bags?
+description: "Exploring everyday objects: Shopping Bags"
 tags: [ideas, thoughts, shopping, bags]
 author: Samuel Overington
+media:
+  - href: "/images/blog/shopping_bags.jpg"
+    alt: "A shopping bag"
 ---
 
 ## What is it? (short-form)

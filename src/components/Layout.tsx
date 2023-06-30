@@ -1,4 +1,6 @@
 import React from 'react'
+import Image from 'next/image'
+
 import { type menuItem, Menu } from '@/components/Navigation'
 import { type postItem } from '@/lib/content'
 import { PostDate, MarkdownDiv } from '@/components/Content'
@@ -30,20 +32,45 @@ export function Post(props: {
     </main>
   )
 }
+export type mediaItem = {
+  href: string
+  alt: string
+  width?: number
+  height?: number
+}
 
 export function HeaderLayout(props: {
   title: string
   children?: React.ReactNode
   pre_title?: string
   subtitle?: string
-  background_image?: string
+  media?: mediaItem[]
 }) {
+  // 
   return (
     <div className="header-layout">
       {props.pre_title && <small>{props.pre_title}</small>}
       <h1>{props.title}</h1>
       {props.subtitle && <h3>{props.subtitle}</h3>}
       {props.children && <>{props.children}</>}
+      {props.media && (
+        <div className="media">
+          {props.media.map((media, i) => (
+            <>
+            {/* <img src={media.href} alt={media.alt + " img"} /> */}
+            <p>{media.href}</p>
+            
+            <Image
+              key={i}
+              src={media.href}
+              alt={media.alt}
+              width={media.width || 500}
+              height={media.height || 500}
+            />
+            </>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
@@ -54,9 +81,10 @@ export function HeroPostHeader(post: postItem) {
       title={post.title}
       pre_title={<PostDate post={post} />}
       subtitle={post.tags}
-      >
-      <MarkdownDiv html={post.content_html} />
-      </HeaderLayout>
+      media={post.media}
+    >
+      <p className="post-description">{post.description}</p>
+    </HeaderLayout>
   )
 }
 
