@@ -19,10 +19,10 @@ export function SampleTextColors() {
   ]
   return (
     <div>
-      {nums.map((n) => {
+      {nums.map((n, i) => {
         const color_string = n === null ? '' : '-' + n
         return (
-          <p style={{ color: 'var(--text-color' + color_string + ')' }}>
+          <p style={{ color: 'var(--text-color' + color_string + ')' }} key={i}>
             text{color_string}
           </p>
         )

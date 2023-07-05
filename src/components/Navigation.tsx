@@ -7,15 +7,12 @@ export type menuItem = {
 }
 
 export function NavItem({
-  nav_item,
-  key_name
+  nav_item
 }: {
   nav_item: menuItem
-  key_name: string | number
 }) {
   /**
    * @param nav_item: menuItem
-   * @param key_name: string | number
    *
    * Create a navigation item from a menuItem object
    *
@@ -23,7 +20,7 @@ export function NavItem({
    */
 
   return (
-    <li key={key_name}>
+    <li>
       {nav_item.pre_link}
       <Link href={nav_item.href}>{nav_item.text}</Link>
     </li>
@@ -49,7 +46,12 @@ export function Menu({
    */
   const classes = ['navigation', ...nav_classes].filter(Boolean).join(' ')
   const menu_items_jsx = menu_items.map((nav_item, key) => {
-    return <NavItem nav_item={nav_item} key_name={`${menu_name}-${key}`} />
+    return (
+    <NavItem
+    nav_item={nav_item}
+    key={`${menu_name}-${key}`}
+    />
+    )
   })
   return (
     <nav className={classes}>
@@ -66,7 +68,10 @@ export function TagNavItems({ tags }: { tags: string[] }) {
   const tag_items_jsx = tags.map((tag, key) => {
     const href = `/tags/${tag}`
     return (
-      <NavItem nav_item={{ text: tag, href: href, pre_link: '#' }} key_name={`tag-items-${key}`} />
+      <NavItem
+        nav_item={{ text: tag, href: href, pre_link: '#' }}
+        key={`tag-items-${key}`}
+      />
     )
   })
 

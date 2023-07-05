@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { getAllTags } from '@/lib/content'
 import { getSiteNavItems, menuItemFactory } from '@/lib/navigation'
 import { type menuItem } from '@/components/Navigation'
+import { TagNavItems } from '@/components/Navigation'
 
 
 export default function BlogPost(props: {
@@ -9,12 +10,12 @@ export default function BlogPost(props: {
     footerMenuItems: menuItem[]
     all_tags: string[]
 }) {
+  
   return (
   <div>
     <h1>Hello world, here are the tags</h1>
-    {
-    props.all_tags.map((tag) => <Link href={`/tags/${tag}`} title={tag}>{tag}</Link> )
-  }
+    <TagNavItems
+    tags={props.all_tags} />
   </div>
   )
 }

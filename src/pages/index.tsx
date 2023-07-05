@@ -33,7 +33,6 @@ export function MainHeader() {
       pre_title={<Image alt="samuel overington" src={profilePic} className="profile-avatar" />}
       title="Samuel Overington"
       subtitle="⟨Artist|Software Engineer⟩"
-      content_classes={["full-width"]}
     >
       {/* <h1>Samuel Overington</h1> */}
       {/* <h2>⟨Artist|Software Engineer⟩</h2> */}
