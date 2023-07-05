@@ -4,6 +4,7 @@ date: 2022-06-02
 description: "Exploring everyday objects: Shopping Bags"
 tags: [ideas, thoughts, shopping, bags]
 author: Samuel Overington
+background_img: "/images/blog/shopping_bags.jpg"
 media:
   - href: "/images/blog/shopping_bags.jpg"
     alt: "A shopping bag"

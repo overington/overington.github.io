@@ -3,36 +3,66 @@
         font-size: 108%;
         opacity: .8;
     }
+
     .post-description {
         font-size: 1.2rem;
         color: var(--text-color-light)
     }
-    .tag-links {
-        list-style: none;
-        span {
-            color: var(--text-color-light);
-            // li has no list marker, and isn't stacked
-            display: inline-block;
-            margin-right: 1rem;
-            margin-bottom: 1rem;
-        }
-    }
-}
 
-.header-layout {
-    .media, .title {
+    ul.tag-links {
+        li {
+            display: inline-block;
+            margin: 1rem 0.2rem 0;
+
+            a {
+                padding: 0.2rem 0.5rem 0.2rem 0;
+                text-decoration: none;
+                color: var(--text-color-dark);
+            }
+        }
+
+        li:hover {
+            background-color: var(--link-color);
+            color: var(--text-color-light);
+        }
+
+        color: var(--text-color-light);
+
+    }
+
+    .full-width {
+        width: 100% !important;
+    }
+
+    .post-header {
+
+
+        img {
+            max-height: 500px;
+            width: auto;
+            margin: 2rem auto;
+        }
+
+    }
+    .half-width {
         float: left;
         width: 50%;
+        box-sizing: border-box;
     }
-    img {
-        max-height: 500px;
-        width: auto;
-        margin: 2rem auto;
-    }
-}
 
-img.profile-avatar {
-    max-height: 300px;
-    max-width: 300px;
-    margin: 2rem auto 4rem;
+    ul {
+        // reset to default style for header
+        list-style: inside;
+
+        li::before {
+            content: '';
+            padding-right: 0;
+        }
+    }
+
+    img.profile-avatar {
+        max-height: 300px;
+        max-width: 300px;
+        margin: 2rem auto 4rem;
+    }
 }

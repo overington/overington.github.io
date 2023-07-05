@@ -18,11 +18,17 @@ export type postItem = {
   date?: string
   description?: string
   tags?: string[]
-  media?: { [key: string]: string }
+  media?: mediaItem[]
   author?: string
   hero?: boolean
 }
 
+export type mediaItem = {
+  href: string
+  alt: string
+  width?: number
+  height?: number
+}
 
 export function getPostItems() {
   const all_posts = readdir(POSTS_PATH)

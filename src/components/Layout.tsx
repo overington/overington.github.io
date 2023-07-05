@@ -1,10 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { type menuItem, Menu } from '@/components/Navigation'
-import { type postItem } from '@/lib/content'
+import { type postItem, type mediaItem } from '@/lib/content'
 import { PostDate, MarkdownDiv } from '@/components/Content'
-import { TagLinks } from '@/components/Navigation'
+import { TagNavItems } from '@/components/Navigation'
 import { format_date_str } from '@/components/Content'
 
 export function Footer(props: {
@@ -26,78 +27,73 @@ export function Post(props: {
   return (
     <main className="content">
       <article>
-        {props.header && <header>{props.header}</header>}
+        {props.header && props.header}
         {props.children && <div className="post-content">{props.children}</div>}
       </article>
     </main>
   )
 }
-export type mediaItem = {
-  href: string
-  alt: string
-  width?: number
-  height?: number
+export type headerClasses = {
+  post_header_content?:  string[]
+  post_header_media?:  string[]
+  post_header_children?:  string[]
 }
-
 export function HeaderLayout(props: {
-  title: string
+  title: string | React.ReactNode
   children?: React.ReactNode
-  pre_title?: string
-  subtitle?: string
+  pre_title?: string | React.ReactNode
+  subtitle?: string | React.ReactNode
   media?: mediaItem[]
+  content_classes?: headerClasses
 }) {
-  //
+  const c = props.content_classes
+  const c_content = c && c.post_header_content ? ' ' + c.post_header_content.join(' ') : ''
+  const c_media = c && c.post_header_media ? ' ' + c.post_header_media.join(' ') : ''
+  const c_children = c && c.post_header_children ? ' ' + c.post_header_children.join(' ') : ''
+
   return (
-    <div className="header-layout">
+    <header className="post-header">
       {props.pre_title && <small>{props.pre_title}</small>}
-      <h1>{props.title}</h1>
-      <div className="title">
+      <h1 className="post-title">{props.title}</h1>
+      <div className={`post-header-content${c_content}`}>
         {props.subtitle && <h3>{props.subtitle}</h3>}
-        {props.children && <>{props.children}</>}
+        {props.media && (
+          <div className={`post-header-media${c_media}`}>
+            {props.media.map((media, i) => (
+              <Image
+                key={i}
+                src={media.href}
+                alt={media.alt}
+                width={media.width || 500}
+                height={media.height || 500}
+              />
+            ))}
+          </div>
+        )}
+        {props.children && <div className={`post-header-children${c_children}`}>{props.children}</div>}
       </div>
-      {props.media && (
-        <div className="media">
-          {props.media.map((media, i) => (
-            <Image
-              key={i}
-              src={media.href}
-              alt={media.alt}
-              width={media.width || 500}
-              height={media.height || 500}
-            />
-          ))}
-        </div>
-      )}
-    </div>
+    </header>
   )
 }
 
 export function HeroPostHeader(post: postItem) {
+  const date = post.date ? <PostDate date_string={post.date} /> : null
+  const post_tags = post.tags ? TagNavItems({ tags: post.tags }) : null
+
   return (
     <HeaderLayout
-      title={post.title}
-      pre_title={<PostDate post={post} />}
-      subtitle={post.tags}
+      pre_title={<span>Featured post from: {date}</span>}
+      title={<Link href={post.slug}>{post.title}</Link>}
+      subtitle={post_tags}
       media={post.media}
+      content_classes={{
+        post_header_media: ['half-width'],
+        post_header_children: ['half-width']
+      }}
     >
       <p className="post-description">{post.description}</p>
     </HeaderLayout>
   )
-}
-
-export function HeroPostHeaderold(post: postItem) {
-  return <HeaderLayout title="sample title" />
-  // title={post.title}
-  // pre_title=<PostDate(post) />
-  // subtitle={tag} />
-  // return (
-  //   <>
-  //     <small>{post.tags}</small>
-  //     <h1>{post.title}</h1>
-  //     <h3>{PostDate(post)}</h3>
-  //     <MarkdownDiv html={post.content_html} />
-  //     {/* {post.content_html && <p>{post.content_html}</p>} */}
-  //   </>
 }
 
 export function PostHeader(post: postItem) {
@@ -107,19 +103,26 @@ export function PostHeader(post: postItem) {
   const post_date = post.date ? format_date_str(post.date) : null
   const post_author = post.author ? post.author : 'Samuel Overington'
   // if post tags exist, format them as a string with commas
-  const post_tags = post.tags ? TagLinks({ tags: post.tags, base: '/' }) : null
+  const post_tags = post.tags ? TagNavItems({ tags: post.tags }) : null
+  // <header className="post-header">
+  //   {post_date && <p className="post-date">{post_date}</p>}
+  //   <h1 className="post-title">{post.title}</h1>
+  //   <p className="post-author">{post_author}</p>
+  //   {post_tags && (
+  //       <span className="post-tags">
+  //         Tags: {post_tags}
+  //       </span>
+  //   )}
+  // </header>
 
   return (
-    <>
-      <h1 className="post-title">{post.title}</h1>
-      <p className="post-author">{post_author}</p>
-      {post_tags && (
-        <p className="post-tags">
-          {/* bold emphasided */}
-          <strong>Tags</strong>: {post_tags}
-        </p>
-      )}
-      {post_date && <p className="post-date">{post_date}</p>}
-    </>
+    <HeaderLayout
+      pre_title={post_date}
+      title={post.title}
+      subtitle={post_tags}
+      // media={post.media}
+    >
+      <p className="post-description">{post.description}</p>
+    </HeaderLayout>
   )
 }

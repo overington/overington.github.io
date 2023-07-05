@@ -4,7 +4,7 @@ import { Post, Footer, HeroPostHeader } from '@/components/Layout'
 import { Menu, type menuItem } from '@/components/Navigation'
 
 
-export default function Blog(props: {
+export default function PostIndex(props: {
   mainMenuItems: menuItem[]
   footerMenuItems: menuItem[]
   postItems: postItem[]
@@ -12,13 +12,13 @@ export default function Blog(props: {
 }) {
   const heroHeader = HeroPostHeader(props.heroPost)
   return (
-    <>
+    <div className="post-index">
       <Menu menuItems={props.mainMenuItems} />
       <Post header={heroHeader}>
         <PostList posts={props.postItems} />
       </Post>
       <Footer menuItems={props.footerMenuItems} />
-    </>
+    </div>
   )
 }
 

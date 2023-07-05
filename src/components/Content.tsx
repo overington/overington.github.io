@@ -19,9 +19,8 @@ export function MarkdownDiv(props: { html?: string }) {
   )
 }
 
-export function PostDate(post: postItem) {
-  if (!post.date) return null
-  const date = format_date_str(post.date)
+export function PostDate(props: {date_string: string}) {
+  const date = format_date_str(props.date_string)
   return <time dateTime={date}>{date}</time>
 }
 
@@ -66,8 +65,8 @@ export function PostList({
         {posts.map((post) => (
           <ol key={post.slug}>
             <Link href={path.join(...base, post.slug)}>
-              {' '}
-              {PostDate(post)} | {post.title}
+              {post.date ?  <><PostDate date_string={post.date} /> | </>: null}
+              {post.title}
             </Link>
             {post.description && (
               <>
