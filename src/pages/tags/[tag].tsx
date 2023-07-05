@@ -14,7 +14,10 @@ export default function TagPage(props: {
   //   const tags = TagLinks({ tags: props.all_tags })
   return (
     <>
-      <Menu menuItems={props.mainMenuItems} />
+      <Menu
+      menu_items={props.mainMenuItems}
+      menu_name='main-menu-tag-page'
+      />
       <Post
         header={
           <HeaderLayout title="Tag: {props.tag}" subtitle="A list of all tags">

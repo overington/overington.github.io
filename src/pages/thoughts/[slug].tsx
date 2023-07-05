@@ -19,7 +19,10 @@ export default function PostPage(props: {
 
   return (
     <div className="post-page">
-      <Menu menuItems={props.mainMenuItems} />
+      <Menu
+      menu_items={props.mainMenuItems}
+      menu_name='main-menu-post-page'
+      />
       <Post header={post_header}>
         <MarkdownDiv html={props.post.content} />
       </Post>

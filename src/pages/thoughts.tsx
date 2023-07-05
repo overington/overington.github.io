@@ -13,7 +13,10 @@ export default function PostIndex(props: {
   const heroHeader = HeroPostHeader(props.heroPost)
   return (
     <div className="post-index">
-      <Menu menuItems={props.mainMenuItems} />
+      <Menu
+      menu_items={props.mainMenuItems}
+      menu_name='main-menu-blog'
+      />
       <Post header={heroHeader}>
         <PostList posts={props.postItems} />
       </Post>

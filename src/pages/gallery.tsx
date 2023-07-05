@@ -15,7 +15,10 @@ export default function Home(props: {
 }) {
   return (
     <>
-      <Menu menuItems={props.mainMenuItems} />
+      <Menu
+        menu_items={props.mainMenuItems}
+        menu_name='main-menu-gallery'
+      />
       <Post>
         <p>Hello World</p>
       </Post>

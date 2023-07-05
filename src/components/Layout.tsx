@@ -15,7 +15,10 @@ export function Footer(props: {
   return (
     <footer className="footer">
       {props.children}
-      <Menu menuItems={props.menuItems} />
+      <Menu
+      menu_items={props.menuItems}
+      menu_name='footer-menu'
+      />
     </footer>
   )
 }
@@ -51,12 +54,26 @@ export function HeaderLayout(props: {
   const c_media = c && c.post_header_media ? ' ' + c.post_header_media.join(' ') : ''
   const c_children = c && c.post_header_children ? ' ' + c.post_header_children.join(' ') : ''
 
+  const render_subtitle = (sub: string | React.ReactNode) => {
+    /**
+     * if props.subtitle is a string, wrap it in h3 tag, else if it is ReactNode
+     * render it, else if it is null don't add anything
+     */
+    if (typeof sub === 'string') {
+      return <h3>{sub}</h3>
+    } else if (sub) {
+      return sub
+    } else {
+      return null
+    }
+  }
+
   return (
     <header className="post-header">
       {props.pre_title && <small>{props.pre_title}</small>}
       <h1 className="post-title">{props.title}</h1>
       <div className={`post-header-content${c_content}`}>
-        {props.subtitle && <h3>{props.subtitle}</h3>}
+        {render_subtitle(props.subtitle)}
         {props.media && (
           <div className={`post-header-media${c_media}`}>
             {props.media.map((media, i) => (

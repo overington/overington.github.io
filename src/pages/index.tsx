@@ -17,7 +17,10 @@ export default function Home(props: {
   const home_header = MainHeader()
   return (
     <div className="home">
-      <Menu menuItems={props.mainMenuItems} />
+      <Menu
+      menu_items={props.mainMenuItems}
+      menu_name='main-menu-home'
+      />
       <Post header={home_header} />
       <Footer menuItems={props.footerMenuItems} />
     </div>

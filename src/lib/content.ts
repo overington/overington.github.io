@@ -118,7 +118,6 @@ export async function getAllPosts(fields: string[] = []) : Promise<postItem[]> {
    * @returns Promise<postItem[]>
    */
   const slugs = await getAllPostSlugs()
-  // const posts: postItem[] = (slugs.length > 0) ? slugs.map((slug) => await getPostBySlug(slug, fields)) : []
   const posts: postItem[] = []
   for (const slug of slugs) {
     const post = await getPostBySlug(slug, fields)
@@ -140,17 +139,18 @@ export async function getPostsByTag(tag: string, fields: string[] = []) : Promis
   return filtered_posts 
 }
 
-export async function getTags() : Promise<string[]> {
-  /**
-   * Get all tags from all posts
-   * 
-   * @returns Promise<string[]>
-   */
-  const posts = await getAllPosts(['tags'])
-  const tags = posts.flatMap((post) => post.tags)
-  // if tags is undefined, return empty array
-  return tags ? [...new Set(tags)] : []
-}
+// export async function getTags() : Promise<string[]> {
+//   /**
+//    * Get all tags from all posts
+//    * 
+//    * @returns Promise<string[]>
+//    */
+//   const posts = await getAllPosts(['tags'])
+//   const tags = posts.flatMap((post) => post.tags)
+//   console.log('getTags - tags: ', tags)
+//   // if tags is undefined, return empty array
+//   return tags ? [...new Set(tags)] : []
+// }
 
 import { remark } from 'remark'
 import html from 'remark-html'
