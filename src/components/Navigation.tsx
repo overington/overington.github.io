@@ -21,8 +21,7 @@ export function NavItem({
 
   return (
     <li>
-      {nav_item.pre_link}
-      <Link href={nav_item.href}>{nav_item.text}</Link>
+      <Link href={nav_item.href}>{nav_item.pre_link}{nav_item.text}</Link>
     </li>
   )
 }

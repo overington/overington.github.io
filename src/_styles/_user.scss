@@ -12,20 +12,19 @@
     ul.tag-links {
         li {
             display: inline-block;
-            margin: 1rem 0.2rem 0;
 
             a {
-                padding: 0.2rem 0.5rem 0.2rem 0;
                 text-decoration: none;
-                color: var(--text-color-dark);
+                margin: 1rem 0.2rem 0;
+
+                padding: 0.3rem;
+
+                &:hover {
+                    color: white;
+                    background-color: var(--link-color);
+                }
             }
         }
-
-        li:hover {
-            background-color: var(--link-color);
-            color: var(--text-color-light);
-        }
-
         color: var(--text-color-light);
 
     }
@@ -44,6 +43,7 @@
         }
 
     }
+
     .half-width {
         float: left;
         width: 50%;
@@ -52,11 +52,13 @@
 
     ul {
         // reset to default style for header
-        list-style: inside;
+        // list-style: inside;
 
-        li::before {
-            content: '';
-            padding-right: 0;
+        li:before {
+            content: none;
+            list-style-position: inside;
+            list-style-image: none;
+            // padding-right: 0;
         }
     }
 
