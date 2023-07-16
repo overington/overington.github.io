@@ -13,4 +13,4 @@ export const BLOG_SLUG = 'thoughts'
 // Site URL
 export const HOST = process.env.HOST || 'localhost'
 export const PORT = process.env.PORT || '3000'
-export const SITE_URL = process.env.SITE_URL || `//${HOST}:${PORT}`
+export const SITE_URL = process.env.SITE_URL || `${HOST}:${PORT}`

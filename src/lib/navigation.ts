@@ -4,7 +4,7 @@ import yaml from 'js-yaml'
 import { menuItem } from '@/components/Navigation'
 
 // set from env if available else use default 'path'
-import { SITE_MENUS_PATH } from '@/lib/constants'
+import { SITE_MENUS_PATH, SITE_URL } from '@/lib/constants'
 
 export type navItem ={
     text: string
@@ -13,7 +13,7 @@ export type navItem ={
     basePath?: string
 }
 
-export function menuItemFactory( {text, href, slug, basePath} : navItem ): menuItem {
+export function old_menuItemFactory( {text, href, slug, basePath} : navItem ): menuItem {
     /**
      * Construct a MenuItem object from a navItem object
      * 
@@ -37,13 +37,30 @@ export function menuItemFactory( {text, href, slug, basePath} : navItem ): menuI
     }
     if (slug === '/' && !href) {
         // replace slug with empty string to avoid double slashes
-        href = [process.env.HOST, basePath].filter(Boolean).join('/')
+        href = [SITE_URL, basePath].filter(Boolean).join('/')
     }
     return {
         text: text,
         href: (href) ? href : [process.env.HOST, basePath, slug].filter(Boolean).join('/')
     }
 }
+
+export function menuItemFactory( {text, href, slug, basePath} : navItem ): menuItem {
+
+    // remove leading and trailing slashes from slug
+    slug = slug?.replace(/^\/|\/$/g, '')
+    // remove leading and trailing slashes from basePath
+    basePath = basePath?.replace(/^\/|\/$/g, '')
+    // http for localhost, https for production
+    const protocol = (process.env.NODE_ENV === 'production') ? 'https' : 'http'
+
+    return {
+        text: text,
+        // nb only one '/' after protocol
+        href: (href) ? href : [`${protocol}:/`, SITE_URL, basePath, slug].filter(Boolean).join('/'),
+    }
+}
+
 
 // Read the YAML file
 export async function getSiteNavItems(){

@@ -2,18 +2,27 @@
 
 Public profile site
 
+# TODO:
+
+- [x] main navigation problem:
+    Main navigation link will add the current page to the end of current url, I want it to be the root url.
+    To fix this, I need to add a `baseurl` to the config file, and then use that in the navigation links.
+
+## Hero Post fixes:
+- [ ] rearrange hero post so media gets displayed on right, and text on left.
+    or show hero image as background to hero header
+- [ ] add description text to hero post
+
+## Post page:
+
+
+
+
 
 ### Front page:
 
 Landing page. Objective is to give a quick overview of who I am, and what I do.
 
-Overview points:
-- [x] name
-- [x] job title
-- [x] location
-- [x] social links
-- [x] contact links
-- [ ] short bio
 
 #### Short bio
 

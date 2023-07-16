@@ -9,7 +9,7 @@
     "prebuild": "echo 'loading .env.production in predev';[ -e .env.production ] && set -a && . ./.env.production",
     "build": "next build",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "dependencies": {
     "@types/node": "18.15.3",
