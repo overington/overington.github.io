@@ -4,12 +4,6 @@ main:
   slug: "/"
 - text: Thoughts
   slug: "thoughts"
-- text: Gallery
-  slug: "gallery"
-- text: Projects
-  slug: "projects"
-- text: CV
-  slug: "cv"
 
 footer:
 - text: "@overington"
