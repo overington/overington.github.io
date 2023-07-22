@@ -19,6 +19,7 @@ Public profile site
 
 
 
+
 ### Front page:
 
 Landing page. Objective is to give a quick overview of who I am, and what I do.
@@ -38,16 +39,12 @@ I am a ML engineer, with a background in visual and participatory art. I am curr
 
 
 
-## Tasks
+# Tasks
 
 
 ### markdown rendering
 - [x] post page
 
-
-### UI:
-- [x] create a basic layout
-- [ ] find a profile image, and make it fit
 
 
 ### blog / Thoughts:
