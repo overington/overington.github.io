@@ -25,6 +25,7 @@
                 }
             }
         }
+
         color: var(--text-color-light);
 
     }
@@ -33,7 +34,34 @@
         width: 100% !important;
     }
 
+    .post-page .post-header.with-background-img {
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .background-img-fade {
+        background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+    }
+
     .post-header {
+        &.hero-index {
+            padding-left: var(--space-hero-header);
+            padding-right: var(--space-hero-header);
+            text-align: center;
+            margin-bottom: 2rem;
+
+            .post-header-content {
+                margin-left: calc(var(--space-header) - var(--space-hero-header));
+                margin-right: calc(var(--space-header) - var(--space-hero-header));
+            }
+        }
+
+        .post-header-title,
+        .post-header-content>.tag-links {
+            margin-bottom: 3rem;
+        }
 
 
         img {

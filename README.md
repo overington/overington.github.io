@@ -4,9 +4,15 @@ Public profile site
 
 # TODO:
 
-- [x] main navigation problem:
+- [x] **main navigation problem**:
     Main navigation link will add the current page to the end of current url, I want it to be the root url.
     To fix this, I need to add a `baseurl` to the config file, and then use that in the navigation links.
+
+- [ ] **Post header backgorund images**:
+    Post pages, and hero post header for index pages should have an ability to:
+    - [ ] set a background image.
+    - [ ] set option to fade image
+    - [ ] set option to change text colour - eg if image is dark, set light text...etc
 
 ## Hero Post fixes:
 - [ ] rearrange hero post so media gets displayed on right, and text on left.
