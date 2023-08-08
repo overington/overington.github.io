@@ -1,5 +1,5 @@
 import { readFileSync, readdirSync } from 'fs'
-import { readdir, readFile } from 'fs/promises'
+import { readdir } from 'fs/promises'
 import { join } from 'path'
 
 import matter from 'gray-matter'
@@ -73,6 +73,11 @@ export async function getPostBySlug(
   const { data, content } = matter(fileContents)
   const content_html = await markdownToHtml(content)
 
+  // if no data.media, create it
+  if (!data.media) {
+    data.media = {} as postMedia
+  }
+  
   data.slug = realSlug
   data.content = content
   data.content_html = content_html
@@ -151,16 +156,14 @@ export async function getPostsByTag(
    * @returns Promise<postItem[]>
    */
   const posts = await getAllPosts(fields)
-  const filtered_posts = posts.filter(
-    (post) => post.tags && post.tags.includes(tag)
-  )
-  return filtered_posts
+  const filtered_posts = posts.filter((post) => post.tags && post.tags.includes(tag))
+  return filtered_posts 
 }
 
 // export async function getTags() : Promise<string[]> {
 //   /**
 //    * Get all tags from all posts
-//    *
+//    * 
 //    * @returns Promise<string[]>
 //    */
 //   const posts = await getAllPosts(['tags'])

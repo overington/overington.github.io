@@ -5,13 +5,13 @@ description: 'Exploring everyday objects: Shopping Bags'
 tags: [ideas, thoughts, shopping, bags]
 author: Samuel Overington
 media:
+  featured:
+    href: '/images/blog/shopping_bags.jpg'
+    alt: 'A shopping bag'
+    classes: ['background-img-fade-50']
   gallery:
     - href: '/images/blog/shopping_bags.jpg'
       alt: 'A shopping bag'
-  background_img:
-    - href: '/images/blog/shopping_bags.jpg'
-      alt: 'A shopping bag'
-      classes: ['background-fade-50']
 ---
 
 ## What is it? (short-form)

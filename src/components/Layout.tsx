@@ -34,44 +34,26 @@ export function Post(props: {
     </main>
   )
 }
-export type headerClasses = {
-  post_header_content?: string[]
-  post_header_media?: string[]
-  post_header_background_img?: string[]
-  post_header_children?: string[]
-}
+
 export function HeaderLayout(props: {
   title: string | React.ReactNode
   children?: React.ReactNode
   pre_title?: string | React.ReactNode
   subtitle?: string | React.ReactNode
-  media?: postMedia
-  background?: string
-  content_classes?: headerClasses
+  media: postMedia
+  container_classes?: string[]
 }) {
-  const c = props.content_classes
-  const c_content =
-    c && c.post_header_content ? ' ' + c.post_header_content.join(' ') : ''
-  const c_media =
-    c && c.post_header_media ? ' ' + c.post_header_media.join(' ') : ''
-  const c_children =
-    c && c.post_header_children ? ' ' + c.post_header_children.join(' ') : ''
-  // Usefuul for setting text color based on background image
-  const c_background_img =
-    c && c.post_header_background_img
-      ? ' ' + c.post_header_background_img.join(' ')
-      : ''
-  const background_img_style = props.background
-    ? {
-        backgroundImage: `url('${props.background}')`
-      }
-    : {}
+  const classes_container = props.container_classes
+    ? ' ' + props.container_classes.join(' ')
+    : ''
+  const background_img_class = props.media.featured
+    ? ' with-featured-img'
+    : ''
+  // const background_img_style = props.media.featured ? { backgroundImage: `url('${props.media.featured.href}')` } : {}
 
   const render_subtitle = (sub: string | React.ReactNode) => {
-    /**
-     * if props.subtitle is a string, wrap it in h3 tag, else if it is ReactNode
-     * render it, else if it is null don't add anything
-     */
+    // if props.subtitle is a string, wrap it in h3 tag, else if it is ReactNode
+    // render it, else if it is null don't add anything
     if (typeof sub === 'string') {
       return <h3>{sub}</h3>
     } else if (sub) {
@@ -83,14 +65,22 @@ export function HeaderLayout(props: {
 
   return (
     <header
-      className={`post-header${c_background_img} hero-index`}
-      style={background_img_style}
+      className={`post-header${background_img_class}${classes_container}`}
     >
+      {props.media.featured && (
+        <Image
+          src={props.media.featured.href}
+          className={props.media.featured.classes.filter(Boolean).join(' ')}
+          alt={props.media.featured.alt}
+          width={props.media.featured.width || 500}
+          height={props.media.featured.height || 500}
+        />
+      )}
       <h1 className="post-header-title">{props.title}</h1>
-      <div className={`post-header-content${c_content}`}>
+      <div className="post-header-content">
         {render_subtitle(props.subtitle)}
         {props.media.gallery && (
-          <div className={`post-header-media${c_media}`}>
+          <div className="post-header-media">
             {props.media.gallery.map((media, i) => (
               <Image
                 key={i}
@@ -103,9 +93,7 @@ export function HeaderLayout(props: {
           </div>
         )}
         {props.children && (
-          <div className={`post-header-children${c_children}`}>
-            {props.children}
-          </div>
+          <div className="post-header-children">{props.children}</div>
         )}
       </div>
     </header>
@@ -120,23 +108,12 @@ export function HeroPostHeader(post: postItem) {
   const post_tags = post.tags ? TagNavItems({ tags: post.tags }) : null
   // post url is the blog url plus the post slug
   const post_url = post.slug ? `/${BLOG_SLUG}/${post.slug}` : `/${BLOG_SLUG}/`
-  const content_classes: headerClasses = {
-    // conditionally set post_header_background_img - background class name if post.background_img
-    post_header_background_img: post.media.featured ? ['background-img'] : []
-  }
-
   return (
     <HeaderLayout
       pre_title={<span>Featured post from: {post_date}</span>}
       title={<Link href={post_url}>{post.title}</Link>}
       subtitle={post_tags}
-      media={post.media.gallery}
-      content_classes={
-        {
-          // post_header_media: ['half-width'],
-          // post_header_children: ['half-width']
-        }
-      }
+      media={post.media}
     >
       <p className="post-description">{post.description}</p>
     </HeaderLayout>
@@ -150,14 +127,14 @@ export function PostHeader(post: postItem) {
   const post_date = post.date ? format_date_str(post.date) : null
   const post_author = post.author ? post.author : 'Samuel Overington'
   const post_tags = post.tags ? TagNavItems({ tags: post.tags }) : null
-
+  // class to add here: hero-index
   return (
     <HeaderLayout
       pre_title={post_date}
       title={post.title}
       subtitle={post_tags}
-      background={post.background_img}
-      // media={post.media}
+      media={post.media}
+      container_classes={['hero-index']}
     >
       <p className="post-description">{post.description}</p>
     </HeaderLayout>

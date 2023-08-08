@@ -9,10 +9,10 @@ tags: [ideas, computer-vision, interaction, interface, audio, app]
 author: Samuel Overington
 hero: true
 media:
-  background_img:
-    - href: '/images/_site/IMG_20230729_011938-bird_in_res.jpg'
-      alt: 'A bird on the water in a nature reserve at night'
-      classes: ['header-text-light']
+  featured:
+    href: '/images/_site/IMG_20230729_011938-bird_in_res.jpg'
+    alt: 'A bird on the water in a nature reserve at night'
+    classes: ['header-text-light']
   gallery:
     - href: '/images/blog/obj_track_interface-veg-303.jpg'
       alt: 'A shopping bag'
