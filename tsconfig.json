@@ -21,7 +21,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@theme/*": ["./node_modules/almace-scaffolding/_app/assets/themes/curtana/*"]
+      "@theme/*": ["./node_modules/almace-scaffolding/_app/assets/themes/curtana/*"],
+      "@slider/*": ["./node_modules/react-awesome-slider/*"]
     }
   },
   "exclude": ["node_modules"],

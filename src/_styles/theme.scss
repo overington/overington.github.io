@@ -11,7 +11,7 @@
 @import "@theme/_scss/variables";
 
 // user variables override
-@import "@/_styles/variables"; //  ../../../_scss/variables";
+@import "@/_styles/theme-variables"; //  ../../../_scss/variables";
 
 @import "@theme/_scss/reset";
 @import "@theme/_scss/common";
@@ -22,4 +22,4 @@
 @import "@theme/_scss/components/randomized";
 
 // Finally user custom styles go here
-@import "@/_styles/user"; //"../../../_scss/user";
+@import "@/_styles/theme-u-overrides"; //"../../../_scss/user";

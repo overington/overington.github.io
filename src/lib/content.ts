@@ -121,7 +121,7 @@ export async function getAllPostSlugs(): Promise<string[]> {
     .filter((file) => file.endsWith('.md'))
     // Filter out draft posts (start with underscore) in production
     .filter(
-      (file) => !file.startsWith('_') && process.env.NODE_ENV !== 'production'
+      (file) => !file.startsWith('_') || !(process.env.NODE_ENV === 'production')
     )
     .map((file) => file.replace(/\.md$/, ''))
   return slugs
