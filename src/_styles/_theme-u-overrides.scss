@@ -36,6 +36,9 @@
 
     header.with-featured-img {
         position: relative;
+        padding: 0;
+        margin-left: calc(var(--space-header) * -1);
+        margin-right: calc(var(--space-header) * -1);
         &>img {
             position: absolute;
             top: 0;
