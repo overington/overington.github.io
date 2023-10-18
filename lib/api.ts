@@ -5,7 +5,12 @@ import matter from 'gray-matter'
 const postsDirectory = join(process.cwd(), '_posts')
 
 export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory)
+  // filter out draft posts in production !filename.startsWith('_')`
+  // return fs.readdirSync(postsDirectory)
+  return fs
+    .readdirSync(postsDirectory)
+    .filter((filename) => !filename.startsWith('_'))
+    .filter((filename) => filename.endsWith('.md'))
 }
 
 export function getPostBySlug(slug: string, fields: string[] = []) {
