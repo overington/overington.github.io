@@ -123,3 +123,5 @@ interesting, and how I could use them as the basis for a project.
   application
 
  -->
+
+<script src=" https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js "></script>
