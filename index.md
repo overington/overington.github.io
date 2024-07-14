@@ -11,5 +11,6 @@ I’m a software engineer at [Dimension Studio](https://dimensionstudio.co/), fo
 Feel free to get in touch.
 {: .site-description }
 
+
 {% endcapture %}
 {% include section_banner.inc content=banner_content img_src="assets/images/profile-samuel_overington.jpg" img_alt="" %}
