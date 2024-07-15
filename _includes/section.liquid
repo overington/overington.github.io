@@ -1,0 +1,32 @@
+{% comment %}
+Section with image
+
+Options:
+- style_num: 1-5
+- orientation: left or right
+- content_align: left, center, right
+- fullscreen: true or false
+- image_position: top, center, bottom
+- section_type: banner or spotlight
+{% endcomment %}
+
+{% if include.fullscreen %}
+    {% assign fullscreen = 'fullscreen' %}
+{% else %}
+    {% assign fullscreen = '' %}
+{% endif %}
+
+{% if include.banner %}
+    {% assign section_type = 'banner' %}
+{% else %}
+    {% assign section_type = 'spotlight' %}
+{% endif %}
+
+<section class="{{ section_type }} style{{ include.style_num | default: '1' }} orient-{{ include.orientation }} content-align-{{ include.content_align | default: 'left' }} {{ fullscreen }} image-position-{{ include.image_position | default: 'center' }} onload-image-fade-in onload-content-fade-right">
+    <div class="content">
+        {{ include.content | markdownify }}
+    </div>
+    <div class="image">
+        <img src="{{ include.img_src }}" alt="{{ include.img_alt }}">
+    </div>
+</section>
