@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/jekyll/minima.git
-  revision: 1d5286cf9a1aae34078420d183d560dd673d98b5
-  specs:
-    minima (3.0.0.dev)
-      jekyll (>= 3.5, < 5.0)
-      jekyll-feed (~> 0.9)
-      jekyll-seo-tag (~> 2.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -113,8 +104,8 @@ DEPENDENCIES
   http_parser.rb (~> 0.6.0)
   jekyll (~> 4.3.3)
   jekyll-feed (~> 0.12)
+  jekyll-seo-tag (~> 2.7)
   kramdown-parser-gfm
-  minima (~> 3.0.0.dev)!
   tzinfo (>= 1, < 3)
   tzinfo-data
   wdm (~> 0.1.1)
