@@ -1,0 +1,64 @@
+{% comment %}
+Section with image
+
+Options:
+- content: markdown content
+- content_align: left, center, right
+- img_src: image source
+- img_alt: image alt text
+- orientation: location of image - 'left', 'right'
+- section_type: type of section, 'banner', 'spotlight'
+- image_position: top, center, bottom
+- fullscreen: true or false
+- style_num: 1-5
+    - 1: box image on left or right
+    - 2: full width image on top or bottom
+- color_num: 1-6
+    - 1: color1
+    - 2: color2
+    - 3: color3
+    - 4: color4
+    - 5: color5
+    - 6: color6
+- invert_scheme: true or false
+{% endcomment %}
+
+{% if include.fullscreen %}
+    {% assign fullscreen = 'fullscreen' %}
+{% else %}
+    {% assign fullscreen = '' %}
+{% endif %}
+
+{% case include.colour_num %}
+    {% when '1', 1 %}
+        {% assign colour = 'color1' %}
+    {% when '2', 2 %}
+        {% assign colour = 'color2' %}
+    {% when '3', 3 %}
+        {% assign colour = 'color3' %}
+    {% when '4' %}
+        {% assign colour = 'color4' %}
+    {% when '5' %}
+        {% assign colour = 'color5' %}
+    {% when '6' %}
+        {% assign colour = 'color6' %}
+    {% else %}
+        Color not set
+        {% assign colour = '' %}
+{% endcase %}
+
+{% if include.invert_scheme %}
+    {% assign invert_scheme = 'invert' %}
+{% else %}
+    {% assign invert_scheme = '' %}
+{% endif %}
+
+<section class="{{ section_type  }} style{{ include.style_num | default: '1' }} {{ colour }} {{ invert_scheme }} orient-{{ include.orientation | default: 'left' }} content-align-{{ include.content_align | default: 'left' }} {{ fullscreen }} image-position-{{ include.image_position | default: 'center' }} onload-image-fade-in onload-content-fade-right">
+    <div class="content">
+        {{ colour }} {{ include.invert_scheme }} | {{ include.img_src }}
+        {{ include.content | markdownify }}
+    </div>
+    <div class="image">
+        <img src="{{ include.img_src }}" alt="{{ include.img_alt }}">
+    </div>
+</section>

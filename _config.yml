@@ -1,21 +1,41 @@
 title: Samuel Overington
-email: s.c.overington@gmail.com
+tagline: Software Engineeer, Artist, and Technologist
 description: >- # this means to ignore newlines until "baseurl:"
   I’m a software engineer at Dimension Studio, focusing on novel ML techniques
   for virtual production. Outside of work, I explore the intersection of
   technology and art, creating projects for Link in my Bio. I'm passionate about
   pushing technological boundaries and always open to new collaborations.
+url: "http://samueloverington.com" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-social_links:
-  - twitter: overington
-  - github:  overington
-  - mastodon: overington@mathstodon
+author: Samuel Overington
+email: s.c.overington@gmail.com
+
+twitter:
+  username: overington
+  card: summary_large_image
+
+social:
+  - name: linkedin
+    href: https://www.linkedin.com/in/scoverington
+  - name: github
+    href: https://github.com/overington
+  - name: instagram
+    href: https://www.instagram.com/hybrideating
+  - name: mastodon
+    href: https://www.mathstodon.xyz/@overington
+  - name: twitter
+    href: https://twitter.com/overington
+
+# Posts settings
+paginate: 5
+paginate_path: "/blog/page:num/"
+permalink: /:year/:month/:day/:slug
 
 # Build settings
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-paginate
 
 sass:
   style: expanded
