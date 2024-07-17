@@ -1,0 +1,10 @@
+<section>
+    {% if include.header %}
+    <header>
+        {{ include.header | markdownify }}
+    </header>
+    {% endif %}
+    <div class="content">
+        {{ include.content | markdownify }}
+    </div>
+</section>

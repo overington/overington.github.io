@@ -1,5 +1,6 @@
 ---
-layout: home
+layout: page
+title: Home
 ---
 
 
@@ -22,4 +23,4 @@ Feel free to get in touch.
 
 
 {% endcapture %}
-{% include section.liquid banner=true content=banner_content img_src="assets/images/profile-samuel_overington.jpg" img_alt="" fullscreen=true orientation='left' image_position='right' %}
+{% include section_image.liquid banner=true content=banner_content img_src="assets/images/profile-samuel_overington.jpg" img_alt="" fullscreen=true orientation='left' image_position='right' %}
