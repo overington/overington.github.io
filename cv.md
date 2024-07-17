@@ -17,7 +17,7 @@ I am a passionate CV and ML research engineer with experience creating static an
 I have a strong background in physics and mathematics, and I am comfortable working with large datasets and complex models. I have experience working with cross-functional teams and have a strong track record of delivering projects on time and to a high standard.
 {% endcapture %}
 
-{% include section_image.liquid banner=true content=banner_content img_src="/assets/images/profile-samuel_overington.jpg" img_alt="" orientation='right' image_position='right' style_num='3' social_links=site.social %}
+{% include section_image.html banner=true content=banner_content img_src="/assets/images/profile-samuel_overington.jpg" img_alt="" orientation='right' image_position='right' style_num='3' social_links=site.social %}
 
 <section markdown='1'>
 <header>
