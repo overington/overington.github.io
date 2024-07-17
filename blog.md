@@ -5,10 +5,11 @@ permalink: /blog/
 description: >
   A collection of blog posts.
 # banner
-img_src: '/assets/images/spotlight02.jpg'
-invert_scheme: '1'
-orientation: 'center'
-style_num: '2'
+img_src: '/assets/images/banner.jpg'
+invert_scheme: true
+orientation: 'left'
+style_num: '5'
+colour_num: '1'
 ---
 
 {% capture blog_page_content %}

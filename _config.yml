@@ -40,3 +40,6 @@ plugins:
 sass:
   style: expanded
   sourcemap: always
+
+banner_imge_src: /assets/images/banner.jpg
+banner_image_alt: "Samuel Overington"

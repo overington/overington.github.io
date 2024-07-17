@@ -4,14 +4,14 @@ layout: base
 
 {% assign content = content | markdownify %}
 {% assign content_align = page.content_align | default: 'center' %}
-{% assign banner_img_src = page.img_src | default: site.banner_img %}
-{% assign banner_img_alt = page.banner_img_alt | default: site.banner_img_alt %}
+{% assign img_src = page.img_src | default: site.banner_img_src %}
+{% assign img_alt = page.img_alt | default: site.banner_img_alt %}
 {% assign orientation = page.orientation | default: 'left' %}
 {% assign section_type = page.section_type | default: 'banner' %}
 {% assign img_position = page.img_position | default: 'center' %}
 {% assign fullscreen = page.fullscreen | default: false %}
-{% assign style_num = page.style_num | default: '2' %}
-{% assign colour_num = page.colour_num | default: '0' %}
+{% assign style_num = page.style_num | default: '5' %}
+{% assign colour_num = page.colour_num %}
 {% assign invert_scheme = page.invert_scheme | default:  false %}
 
 {% capture banner_content %}
@@ -26,19 +26,18 @@ layout: base
 {% endcapture %}
 
 
-
-
-{% include section_image.liquid
+{% include section_image.html
+    section_type=section_type
+    img_position=image_position
     content=banner_content
-    banner=true
+    content_align=content_align
     style_num=style_num
-    img_src=banner_img
-    img_alt=banner_img_alt
+    img_src=img_src
+    img_alt=img_alt
     orientation=orientation
-    content_align=center
     fullscreen=fullscreen
-    invert_scheme=scheme_invert
-    color_num=colour_num
+    invert_scheme=invert_scheme
+    colour_num=colour_num
     %}
 
 
