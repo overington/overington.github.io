@@ -1,5 +1,5 @@
-<ul class="icons">
-{% for item in site.social %}
+<ul class="menu icons">
+{% for item in site.navigation.social %}
     <li><a href="{{ item.href }}" class="icon brands style{{ include.style | default: '2' }} fa-{{ item.fa_name | default: item.name }}"><span class="label">{{ item.name }}</span></a></li>
 {% endfor %}
 </ul>

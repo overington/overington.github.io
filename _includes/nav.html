@@ -1,0 +1,5 @@
+<ul class="menu nav-menu">
+  {% for item in site.navigation.main %}
+      <li class="menu-item"><a href="{{ item.href }}" class=""><span class="label">{{ item.name }}</span></a></li>
+  {% endfor %}
+</ul>

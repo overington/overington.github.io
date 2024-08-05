@@ -5,7 +5,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   for virtual production. Outside of work, I explore the intersection of
   technology and art, creating projects for Link in my Bio. I'm passionate about
   pushing technological boundaries and always open to new collaborations.
-url: "http://samueloverington.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://samueloverington.com" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
 author: Samuel Overington
 email: s.c.overington@gmail.com
@@ -14,17 +14,30 @@ twitter:
   username: overington
   card: summary_large_image
 
-social:
-  - name: linkedin
-    href: https://www.linkedin.com/in/scoverington
-  - name: github
-    href: https://github.com/overington
-  - name: instagram
-    href: https://www.instagram.com/hybrideating
-  - name: mastodon
-    href: https://www.mathstodon.xyz/@overington
-  - name: twitter
-    href: https://twitter.com/overington
+navigation:
+  main:
+    - name: Home
+      href: /
+    - name: CV
+      href: /cv
+    - name: Projects
+      href: /projects
+    - name: Blog
+      href: /blog
+    - name: Drawing
+      href: /drawing
+  social:
+    - name: linkedin
+      href: https://www.linkedin.com/in/scoverington
+    - name: github
+      href: https://github.com/overington
+    - name: instagram
+      href: https://www.instagram.com/hybrideating
+    - name: mastodon
+      href: https://www.mathstodon.xyz/@overington
+    - name: twitter
+      href: https://twitter.com/overington
+    
 
 # Posts settings
 paginate: 5
