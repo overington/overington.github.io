@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title: "Welcome to Jekyll!"
 slug: welcome-to-jekyll
-date:   2024-07-14 16:59:59 +0100
+date: 2024-07-14 16:59:59 +0100
 categories: jekyll update
 ---
 

@@ -57,9 +57,9 @@ sass:
 defaults:
   - scope:
       path: ""
-      type: "pages"
+      type: "page"
     values:
-      style: "1"
-      align: "left"
+      style_num: "1"
+      wrapper_align: "left"
 banner_imge_src: /assets/images/banner.jpg
 banner_image_alt: "Samuel Overington"
