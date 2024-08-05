@@ -54,5 +54,12 @@ sass:
   style: expanded
   sourcemap: always
 
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      style: "1"
+      align: "left"
 banner_imge_src: /assets/images/banner.jpg
 banner_image_alt: "Samuel Overington"
