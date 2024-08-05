@@ -18,31 +18,28 @@ I am a passionate CV and ML research engineer with experience creating static an
 I have a strong background in physics and mathematics, and I am comfortable working with large datasets and complex models. I have experience working with cross-functional teams and have a strong track record of delivering projects on time and to a high standard.
 {% endcapture %}
 
-{% include section_image.html banner=true content=banner_content img_src="/assets/images/profile-samuel_overington.jpg" img_alt="" orientation='right' image_position='right' style_num='3' social_links=site.social %}
+{% capture skills %}
+__Languages__: Python, C++, C#, JavaScript, TypeScript, SQL, PHP
 
-<section markdown='1'>
-<header markdown='1'>
-# Skills
-</header>
-__Languages__: Python, C++, C#, JavaScript, SQL, PHP
+__ML / AI Tools__: Machine learning, deep learning, PyTorch, TensorFlow, Keras, OpenCV, linear algebra, segmentation, object detection, transfer learning, Bayesian deep learning, neural networks, computer vision, image processing
 
-__ML / AI Tools__: Machine learning, deep learning, PyTorch, TensorFlow, Keras, OpenCV, linear algebra
+__Tools__: Git, CLI scripting, Python packaging, Jenkins, Github Actions, PyTest, Pandas, Django, Flask, Docker, LaTeX, Linux, macOS, systemd, AWS, PySpark, Hive, Jupyter Lab, DataBricks
 
-__Tools__: Bash, Git, PyTest, Pandas, Django, Flask, Docker, LaTeX, Linux, macOS, AWS, PySpark, Hive, Jupyter Lab, DataBricks
+{% endcapture %}
 
-# Education
-
+{% capture education %}
 2017 -- 2020: **Bsc Physics** (2:1) \
 *Queen Mary University of London*, London, UK
 
-2016 -- 2017: **Access to Science Dimploma** (Distinction) *Tower Hamlets College*, London, UK
+2016 -- 2017: **Access to Science Diploma** (Distinction) \
+*Tower Hamlets College*, London, UK
 
-2003 -- 2007: **Bachelor of Fine Arts (Photography)**\
+2003 -- 2007: **Bachelor of Fine Arts (Photography)** \
 *Victorian College of the Arts*, Melbourne, Australia
+{% endcapture %}
 
-# Experience
-
-### **Dimension Studio**, London UK, Nov 2023.\
+{% capture experience_dimension %}
+### **Dimension Studio**, London UK, Nov 2023.
 *Software Engineer - Machine Learning and Research* (Applied Technology Team).
 
 - Research and implement novel and existing ML techniques for virtual production
@@ -50,23 +47,29 @@ __Tools__: Bash, Git, PyTest, Pandas, Django, Flask, Docker, LaTeX, Linux, macOS
 - Work with cross-functional teams to deliver projects
 
 
-- __Live Production - Omega, *Race of Champions* (Omega Pavillion, Paris Olympics)__:
+- __Live Production - Omega, *Race of Champions* (Omega Pavilion, Parc de Bercy, Paris Olympics)__:
   - Software stack: Python, OpenCV, PyTorch
   - Live audience interactive experience to be captured and rendered in near real-time
-  - Developed ML segmentation/matting pipeline of Human participant from multi-camera feeds
-  - Composited interaction into scene with audience selected virtual athlete
-  - Developed 
+  - Developed pipeline with:
+    - ML segmentation/matting of Human participant from multi-camera feeds
+    - Video composite of rotoscoped participant onto self selected pre-render 3d virtual athlete (meta human), with race stats overlay
+  - Athletes: Noah Lyles, Shericka Jackson, Hannah Conckcroft, Marcel Hug
+  - Audience: 500+ per day, for duration of Olympics and Paralympics 2024
+  - Featured on Omega's social media and website
 
+{% endcapture %}
 
-
-### **Expedia**, London UK, Feb 2022.\
+{% capture experience_expedia %}
+### **Expedia**, London UK, Feb 2022 -- Nov 2023.
 *Machine Learning Engineer* (Meta Marketing Technology Team) Cross-functional team supporting and maintaining customer prediction models and software platform running on AWS
 
   - The platform is built using Airflow, Hive, Python and runs on AWS EMR instances, with Jenkins pipelines for model training and deployment, and DataBricks
   - Platform triage support for users located in many time-zones
   - Lead MLE in project migrating legacy project w/ linear process into AirFlow DAGs, enabling step tables, concurrent processing, and code quality improvements
 
-### **Arm**, Cambridge UK, November 2020 -- Jan 2022.\
+{% endcapture %}
+{% capture experience_arm %}
+### **Arm**, Cambridge UK, November 2020 -- Jan 2022.
 *Software Engineer, Machine Learning Group* (Graduate programme)
 
 Taking part in the graduate rotation programme exposed me to a variety of different projects and teams within the machine learning group at arm:
@@ -92,26 +95,30 @@ Taking part in the graduate rotation programme exposed me to a variety of differ
   - Bring codebase to be completely error and warning free by implement Pylint into CI environment
   - Bug fix front end web app
   - Deliver presentation on methods used to implement Pylint into a live codebase, and Jenkins CI build process with Gerrit
+{% endcapture %}
 
-### **Deimos Space UK**, Harwell, Oxfordshire, July -- Sept 2019. (Internship)\
+{% capture experience_internship_deimos %}
+### **Deimos Space UK**, Harwell, Oxfordshire, July -- Sept 2019. (Internship)
 *Computer Vision and Machine Learning research intern*
 
 - Built object detection model using neural networks for earth observation data, to detect and differentiate between biodiversity types (Python, TensorFlow and Keras)
 - Researched methods of transfer learning in neural networks, and implemented one in a project constrained by a limited labelled dataset; improving training time
 - Created internal reference documentation for CVAT (Computer Vision Annotation Tool)
 - Collaborated on a poster researching computer vision methods using machine learning, neural networks and transfer learning
+{% endcapture %}
 
-
-### **Yobota**, London, Jun -- Sep 2018. (Internship)\
+{% capture experience_internship_yobota %}
+### **Yobota**, London, Jun -- Sep 2018. (Internship)
 *Software Engineer intern*
 
-- Developed integration API for OpenBanking using Django / DRF / Oauth 2.0
+- Developed integration API for OpenBanking using Django / DRF / OAuth 2.0
 - Implemented unit tests using pytest and integrated with continuous integration tool (Jenkins)s
 - Delivered team keynote on OpenBanking
 - Create documentation on "Creating a test driven integration" to work on the Yobota platform
 - Participated in daily stand-up and weekly sprint planning meetings
+{% endcapture %}
 
-
+{% capture experience_freelance %}
 ## *(Selected freelance)*
 
 - June 2016 -- 2020: **Stillnessinyoga**, Remote, The Netherlands\
@@ -126,4 +133,31 @@ Taking part in the graduate rotation programme exposed me to a variety of differ
 -   2013 -- 2015: **LVSC**. *Web developer.* Several projects including VCS Assist, London For All. Designed and coded the community website for publishing a blog and news articles. Later created a business directory, for users to publicise their projects
 -   2012: **London for All**. *Web developer.* Designed and coded the community news site
 -   2012: **MIAGOA**. *WordPress theme developer.* Developed site from a photoshop image design template.
-</section>
+{% endcapture %}
+<!-- Render Elements  -->
+
+{% include section_image.html banner=true content=banner_content img_src="/assets/images/profile-samuel_overington.jpg" img_alt="" orientation='right' image_position='right' style_num='3' social_links=site.social %}
+
+<div class="inner" style="padding-top:0;margin-top:-2rem;">
+<div class="index align-left" markdown='1'>
+
+{% include section.html header="## Skills" content=skills %}
+{% include section.html header="## Education" content=education %}
+
+<h2 class="align-center" style="display:block;">
+  Experience
+</h2>
+{% include section.html header="### Nov, 2023 - curr." content=experience_dimension %}
+{% include section.html header="### Feb, 2022" content=experience_expedia %}
+{% include section.html header="### Nov, 2020" content=experience_arm %}
+
+<h2 class="align-center" style="display:block;">
+  Internships
+</h2>
+{% include section.html header="### Jul – Sept 2019" content=experience_internship_deimos %}
+{% include section.html header="### Jun – Sep 2018" content=experience_internship_yobota %}
+
+{% include section.html header="" content=experience_freelance %}
+
+</div>
+</div>
