@@ -23,6 +23,10 @@
 
 		li {
 			padding-left: 0.5rem;
+			ul {
+				list-style: circle; /* Change to desired style */
+				margin-bottom: 0; /* Remove margin */
+			  }
 		}
 
 		&.alt {

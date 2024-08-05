@@ -39,29 +39,30 @@ __Tools__: Git, CLI scripting, Python packaging, Jenkins, Github Actions, PyTest
 {% endcapture %}
 
 {% capture experience_dimension %}
-### **Dimension Studio**, London UK, Nov 2023.
-*Software Engineer - Machine Learning and Research* (Applied Technology Team).
+## **Dimension Studio**, London UK, Nov 2023 - Curr.
+#### __Software Engineer - Machine Learning and Research__, *(Applied Technology Team)*
 
-- Research and implement novel and existing ML techniques for virtual production
-- Develop and maintain software for virtual production
-- Work with cross-functional teams to deliver projects
+In my role, I am responsible for researching and implementing both novel and existing machine learning techniques for virtual production and live events. This involves developing and maintaining software specifically designed for moving-image based purposes. I collaborate closely with cross-functional teams to ensure the successful delivery of projects.
 
 
-- __Live Production - Omega, *Race of Champions* (Omega Pavilion, Parc de Bercy, Paris Olympics)__:
-  - Software stack: Python, OpenCV, PyTorch
-  - Live audience interactive experience to be captured and rendered in near real-time
-  - Developed pipeline with:
-    - ML segmentation/matting of Human participant from multi-camera feeds
-    - Video composite of rotoscoped participant onto self selected pre-render 3d virtual athlete (meta human), with race stats overlay
-  - Athletes: Noah Lyles, Shericka Jackson, Hannah Conckcroft, Marcel Hug
-  - Audience: 500+ per day, for duration of Olympics and Paralympics 2024
-  - Featured on Omega's social media and website
+#### Live Production - Omega, *Race of Champions* (Omega Pavilion, Parc de Bercy, Paris Olympics, 2024):
+- Live audience interactive experience to be captured and rendered in near real-time
+- Software stack: Python, OpenCV, PyTorch, Linux, systemd
+- Developed pipeline with two simultanious linux worker nodes:
+  - ML segmentation/matting of Human participant from multi-camera feeds
+  - Video composite of rotoscoped participant onto self selected pre-render 3d virtual athlete (meta human), with race stats overlay
+  - Near real-time processing: tasks were added to a queue and delivered within 5-10 minutes of audience participation
+- Athletes: Noah Lyles, Shericka Jackson, Hannah Conckcroft, Marcel Hug
+- Audience: 500+ per day, for duration of Olympics and Paralympics 2024
+- Featured on Omega's social media and website
 
 {% endcapture %}
 
 {% capture experience_expedia %}
-### **Expedia**, London UK, Feb 2022 -- Nov 2023.
-*Machine Learning Engineer* (Meta Marketing Technology Team) Cross-functional team supporting and maintaining customer prediction models and software platform running on AWS
+## **Expedia**, London UK, Feb 2022 -- Nov 2023.
+#### __Machine Learning Engineer II__ *(Meta Marketing Technology Team)*
+
+Cross-functional team supporting and maintaining customer prediction models and software platform running on AWS
 
   - The platform is built using Airflow, Hive, Python and runs on AWS EMR instances, with Jenkins pipelines for model training and deployment, and DataBricks
   - Platform triage support for users located in many time-zones
@@ -69,20 +70,17 @@ __Tools__: Git, CLI scripting, Python packaging, Jenkins, Github Actions, PyTest
 
 {% endcapture %}
 {% capture experience_arm %}
-### **Arm**, Cambridge UK, November 2020 -- Jan 2022.
-*Software Engineer, Machine Learning Group* (Graduate programme)
+## **Arm**, Cambridge UK, November 2020 -- Jan 2022.
+#### __Software Engineer__, *Machine Learning Group* (Graduate Software Engineer 2020 - 2021, Software Engineer 2021 - 2022)
 
 Taking part in the graduate rotation programme exposed me to a variety of different projects and teams within the machine learning group at arm:
 
 - __ML Research team, *Bayesian DeepLearning for CV*__: (2 months) Lead researcher, exploring and implementing Bayesian DeepLearning models for pixel level image segmentation, and optimising for Arm hardware:
-
   - Explore model architectural changes for performance optimisations
   - Based on DeepLabV3 architecture
   - Deep dive into Bayesian DeepLearning methods with a model implementations for pixel segmentation.
   - Model implemented using Keras and TensorFlow
-
 - __Applied ML team, *Dynamic hand gesture recognition, and visual wake words*__ (8 months): An ML model for static and dynamic gesture recognition, aimed at low power / IOT / embedded processors
-
   - Lead researcher exploring SOA techniques for dynamic gesture inputs
   - Research and read papers on novel CV ML model architectures and datasets
   - Create data generator pipeline using OpenCV for large video dataset
@@ -147,9 +145,9 @@ Taking part in the graduate rotation programme exposed me to a variety of differ
 <h2 class="align-center" style="display:block;">
   Experience
 </h2>
-{% include section.html header="### Nov, 2023 - curr." content=experience_dimension %}
-{% include section.html header="### Feb, 2022" content=experience_expedia %}
-{% include section.html header="### Nov, 2020" content=experience_arm %}
+{% include section.html header="# 2023 (curr)" content=experience_dimension %}
+{% include section.html header="# 2022" content=experience_expedia %}
+{% include section.html header="# 2020" content=experience_arm %}
 
 <h2 class="align-center" style="display:block;">
   Internships
