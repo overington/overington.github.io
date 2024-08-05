@@ -6,6 +6,7 @@ permalink: /cv/
 
 
 {% capture banner_content %}
+
 # Samuel Overington
 
 ------------------------------------------------------------------------
@@ -20,7 +21,7 @@ I have a strong background in physics and mathematics, and I am comfortable work
 {% include section_image.html banner=true content=banner_content img_src="/assets/images/profile-samuel_overington.jpg" img_alt="" orientation='right' image_position='right' style_num='3' social_links=site.social %}
 
 <section markdown='1'>
-<header>
+<header markdown='1'>
 # Skills
 </header>
 __Languages__: Python, C++, C#, JavaScript, SQL, PHP
