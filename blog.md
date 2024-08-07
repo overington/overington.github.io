@@ -11,5 +11,3 @@ orientation: 'left'
 style_num: '5'
 colour_num: '1'
 ---
-
-Hello

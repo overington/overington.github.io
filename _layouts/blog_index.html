@@ -6,10 +6,10 @@ layout: page
 
 {% for post in featured_posts %}
   {% capture tmp_post_exc %}
-<h1>my blog | SO</h1>
+<h3>{{ page.title }} | {{ site.title }}</h3>
+<h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
 <h4><a href="{{ post.url }}">{{ post.date | date: '%B %d, %Y' }}</a> | {% for category in post.categories %}<em>{{ category }}</em>{% unless forloop.last %}, {% endunless %}{% endfor %}</h4>
-<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-<p>{{ post.excerpt }} <a href="{{ post.url }}">Read more</a></p>
+<p>{{ post.excerpt }} <a class="button primary" href="{{ post.url }}">Read more</a></p>
     {% endcapture %}
   {% assign post_left_right = forloop.index | modulo: 2 %}
   {% if post_left_right == 0 %}
@@ -26,17 +26,21 @@ layout: page
 
 <div class="wrapper align-center style1">
     <div class="inner">
-        <h2>Recent Posts</h2>
+        <h1>Recent Posts</h1>
         <div class="index align-left">
             {% for post in site.posts %}
             <section>
                 <header>
-                    <h3>
-                        <a href="{{ post.url }}"> {{ post.date | date: '%B %d, %Y' }}</a>
-                    </h3>
+                    <h3> <a href="{{ post.url }}"> {{ post.date | date: '%B %d, %Y' }}</a> </h3>
                 </header>
                 <div class="content">
-                    {% for category in post.categories %}<em>{{ category }}</em>{% unless forloop.last %}, {% endunless %}{% endfor %} | <a href="{{ post.url }}">{{ post.title }}</a>
+                      <h3>
+                        <a href="{{ post.url }}">{{ post.title }}</a>
+                      </h3>
+                    <h4>
+                        {% for category in post.categories %}<em>{{ category }}</em>{% unless forloop.last %}, {% endunless %}{% endfor %}
+                    </h4>
+                    <p>{{ post.excerpt }} <a class="button" href="{{ post.url }}">Read more</a></p>
                     
                 </div>
             </section>
