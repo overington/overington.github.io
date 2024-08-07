@@ -42,7 +42,7 @@ navigation:
 # Posts settings
 paginate: 5
 paginate_path: "/blog/page:num/"
-permalink: /:year/:month/:day/:slug
+permalink: /blog/:slug/
 
 # Build settings
 plugins:
@@ -57,9 +57,18 @@ sass:
 defaults:
   - scope:
       path: ""
-      type: "page"
+      type: "pages"
     values:
       style_num: "1"
       wrapper_align: "left"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      featured: false
+      featured_image: /assets/images/pic03.jpg
+
+
 banner_imge_src: /assets/images/banner.jpg
 banner_image_alt: "Samuel Overington"
