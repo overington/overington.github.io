@@ -1,80 +1,113 @@
 .menu a {
   text-decoration: none;
 }
-.menu-toggle {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 1001;
-  }
-  
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: none;
-    z-index: 900;
-  }
-  
-  .side-menu {
-    position: fixed;
-    top: 0;
-    right: -250px;
-    width: 250px;
-    height: 100%;
-    background: #fff;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-    transition: right 0.3s ease;
-    z-index: 950;
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 2rem;
-      li {
-        padding: 15px;
-        // border-bottom: 1px solid #ccc;
-      }
-    }
-    &.open {
-      right: 0;
-    }
-  }
-  
-  .footer-menu {
-    ul.nav-menu {
-      display: inline-flex;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      li {
-        position: relative;
-        padding: 0 1rem; /* Adjust padding as needed */
-        margin: 0 1rem;
-  
-      }
-      &.nav-menu li {
-        &::after {
-          content: '/';
-          position: absolute;
-          right: -1rem; /* Adjust position as needed */
-        }
-  
-        &:last-child::after {
-          content: ''; /* Remove the '/' from the last item */
-        }
-      }
-    }
-  }
-  
-  
-  
-  
-  .overlay.show {
+// Side Menu
+// Initial styles for the side menu and overlay.
+.menu-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1001;
+  div {
+    padding: 0;
+    margin: 0;
     display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease;
   }
+  &.open {
+    .bar1 {
+      transform: rotate(-45deg) translate(-5px, 10px);
+      // translateY(8px);
+    }
+    .bar2 {
+      opacity: 0;
+    }
+    .bar3 {
+      transform: rotate(45deg) translate(-5px, -10px);
+    }
+
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  z-index: 900;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s ease;
+  z-index: 950;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 2rem;
+
+    li {
+      padding: 15px;
+      // border-bottom: 1px solid #ccc;
+    }
+  }
+
+  &.open {
+    right: 0;
+  }
+}
+
+.footer-menu {
+  ul.nav-menu {
+    display: inline-flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      position: relative;
+      padding: 0 1rem;
+      /* Adjust padding as needed */
+      margin: 0 1rem;
+
+    }
+
+    &.nav-menu li {
+      &::after {
+        content: '/';
+        position: absolute;
+        right: -1rem;
+        /* Adjust position as needed */
+      }
+
+      &:last-child::after {
+        content: '';
+        /* Remove the '/' from the last item */
+      }
+    }
+  }
+}
+
+.overlay.show {
+  display: block;
+}
