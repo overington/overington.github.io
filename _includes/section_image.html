@@ -31,19 +31,19 @@ Options:
 
 {% case include.colour_num %}
     {% when '1', 1 %}
-        {% assign colour = 'color1' %}
+        {% assign colour_class = 'color1' %}
     {% when '2', 2 %}
-        {% assign colour = 'color2' %}
+        {% assign colour_class = 'color2' %}
     {% when '3', 3 %}
-        {% assign colour = 'color3' %}
+        {% assign colour_class = 'color3' %}
     {% when '4' %}
-        {% assign colour = 'color4' %}
+        {% assign colour_class = 'color4' %}
     {% when '5' %}
-        {% assign colour = 'color5' %}
+        {% assign colour_class = 'color5' %}
     {% when '6' %}
-        {% assign colour = 'color6' %}
+        {% assign colour_class = 'color6' %}
     {% else %}
-        {% assign colour = '' %}
+        {% assign colour_class = '' %}
 {% endcase %}
 
 {% if include.invert_scheme %}
@@ -52,11 +52,13 @@ Options:
     {% assign invert_scheme = '' %}
 {% endif %}
 
-<section class="{{ include.section_type | default: 'banner' }} style{{ include.style_num | default: '1' }} {{ colour }} {{ invert_scheme }} orient-{{ include.orientation | default: 'left' }} content-align-{{ include.content_align | default: 'left' }} {{ fullscreen }} image-position-{{ include.image_position | default: 'center' }} onload-image-fade-in onload-content-fade-right">
+<section class="{{ include.section_type | default: 'banner' }} style{{ include.style_num | default: '1' }} {{ colour_class }} {{ invert_scheme }} orient-{{ include.orientation | default: 'left' }} content-align-{{ include.content_align | default: 'left' }} {{ fullscreen }} image-position-{{ include.image_position | default: 'center' }} onload-image-fade-in onload-content-fade-right">
     <div class="content">
         {{ include.content | markdownify }}
     </div>
+    {% if include.img_src %}
     <div class="image">
         <img src="{{ include.img_src }}" alt="{{ include.img_alt }}">
     </div>
+    {% endif %}
 </section>
