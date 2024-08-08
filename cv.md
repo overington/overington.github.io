@@ -45,16 +45,16 @@ __Tools__: Git, CLI scripting, Python packaging, Jenkins, Github Actions, PyTest
 In my role, I am responsible for researching and implementing both novel and existing machine learning techniques for virtual production and live events. This involves developing and maintaining software specifically designed for moving-image based purposes. I collaborate closely with cross-functional teams to ensure the successful delivery of projects.
 
 
-#### Live Production - Omega, *Race of Champions* (Omega Pavilion, Parc de Bercy, Paris Olympics, 2024):
-- Live audience interactive experience to be captured and rendered in near real-time
-- Software stack: Python, OpenCV, PyTorch, Linux, systemd
-- Developed pipeline with two simultanious linux worker nodes:
+__Live Production - Omega, *Race of Champions*__ (Omega Pavilion, Parc de Bercy, Paris Olympics, 2024):
+Brand campaign featuring live audience interaction with ML segmentation and matting from multi-angle video capture, racing stats overlay, and composite next to a 3D virtual athlete (meta human), rendered in near real-time.
+- I Developed a pipeline with two simultaneous Linux worker nodes:
   - ML segmentation/matting of Human participant from multi-camera feeds
   - Video composite of rotoscoped participant onto self selected pre-render 3d virtual athlete (meta human), with race stats overlay
   - Near real-time processing: tasks were added to a queue and delivered within 5-10 minutes of audience participation
-- Athletes: Noah Lyles, Shericka Jackson, Hannah Conckcroft, Marcel Hug
-- Audience: 500+ per day, for duration of Olympics and Paralympics 2024
+  - Software stack: Python, OpenCV, PyTorch, Linux, systemd
 - Featured on Omega's social media and website
+- Audience count: 500+ per day, for duration of Olympics and Paralympics 2024
+- Athletes: Noah Lyles, Shericka Jackson, Hannah Conckcroft, Marcel Hug
 
 {% endcapture %}
 
@@ -96,7 +96,7 @@ Taking part in the graduate rotation programme exposed me to a variety of differ
 {% endcapture %}
 
 {% capture experience_internship_deimos %}
-### **Deimos Space UK**, Harwell, Oxfordshire, July -- Sept 2019. (Internship)
+## **Deimos Space UK**, Harwell, Oxfordshire, July -- Sept 2019. (Internship)
 *Computer Vision and Machine Learning research intern*
 
 - Built object detection model using neural networks for earth observation data, to detect and differentiate between biodiversity types (Python, TensorFlow and Keras)
@@ -106,7 +106,7 @@ Taking part in the graduate rotation programme exposed me to a variety of differ
 {% endcapture %}
 
 {% capture experience_internship_yobota %}
-### **Yobota**, London, Jun -- Sep 2018. (Internship)
+## **Yobota**, London, Jun -- Sep 2018. (Internship)
 *Software Engineer intern*
 
 - Developed integration API for OpenBanking using Django / DRF / OAuth 2.0
@@ -152,8 +152,8 @@ Taking part in the graduate rotation programme exposed me to a variety of differ
 <h2 class="align-center" style="display:block;">
   Internships
 </h2>
-{% include section.html header="### Jul – Sept 2019" content=experience_internship_deimos %}
-{% include section.html header="### Jun – Sep 2018" content=experience_internship_yobota %}
+{% include section.html header="# 2019" content=experience_internship_deimos %}
+{% include section.html header="# 2018" content=experience_internship_yobota %}
 
 {% include section.html header="" content=experience_freelance %}
 
