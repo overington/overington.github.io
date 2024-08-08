@@ -4,10 +4,15 @@
     }
     .items section {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: end;
         flex-direction: column;
-        text-align: center
+        text-align: left;
+        // align-items: flex-end;
+        @include breakpoint(">=medium") {
+            text-align: center;
+            flex-direction: row;
+            justify-content: center;
+        }
     }
     ul.menu {
         margin-bottom: 1.5rem;
