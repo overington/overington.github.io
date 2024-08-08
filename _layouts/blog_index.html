@@ -11,6 +11,7 @@ layout: page
 <h4><a href="{{ post.url }}">{{ post.date | date: '%B %d, %Y' }}</a> | {% for category in post.categories %}<em>{{ category }}</em>{% unless forloop.last %}, {% endunless %}{% endfor %}</h4>
 <p>{{ post.excerpt }} <a class="button primary" href="{{ post.url }}">Read more</a></p>
     {% endcapture %}
+
   {% assign post_left_right = forloop.index | modulo: 2 %}
   {% if post_left_right == 0 %}
     {% assign orientation = 'right' %}
@@ -19,9 +20,14 @@ layout: page
     {% assign orientation = 'left' %}
     {% assign image_position = 'right' %}
   {% endif %}
-  {% assign tmp_featured_image = post.featured_image %}
-  {% include section_image.html content=tmp_post_exc img_src=tmp_featured_image img_alt="" orientation=orientation image_position=image_position
-  %}
+  {% assign tmp_featured_image=page.featured_img | default: post.featured_image %}
+  {% include section_image.html
+    content=tmp_post_exc
+    img_src=tmp_featured_image
+    img_alt=""
+    orientation=orientation
+    image_position=image_position
+    %}
 {% endfor %}
 
 <div class="wrapper align-center style1">
