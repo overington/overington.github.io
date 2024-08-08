@@ -9,7 +9,7 @@ invert_scheme: true
 section_type: "spotlight"
 style_num: 1
 colour_num: 1
-img_src: /assets/images/blog/mae-architecture.png
+featured_img: '/assets/images/blog/mae-architecture.png'
 ---
 
 Review of paper 

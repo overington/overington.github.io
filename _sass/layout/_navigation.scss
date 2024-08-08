@@ -154,9 +154,6 @@
     margin: 0;
     display: block;
 
-    // li {
-    //   position: relative;
-    // }
     @include breakpoint(">=medium") {
       display: inline-flex;
       gap: 0.8rem;
