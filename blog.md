@@ -8,6 +8,4 @@ description: >
 img_src: '/assets/images/banner.jpg'
 invert_scheme: true
 orientation: 'left'
-style_num: '5'
-colour_num: '1'
 ---

@@ -44,16 +44,6 @@ paginate: 5
 paginate_path: "/blog/page:num/"
 permalink: /blog/:slug/
 
-# Build settings
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-paginate
-
-sass:
-  style: expanded
-  sourcemap: always
-
 defaults:
   - scope:
       path: ""
@@ -72,3 +62,15 @@ defaults:
 
 banner_imge_src: /assets/images/banner.jpg
 banner_image_alt: "Samuel Overington"
+
+# Jekyll Build settings
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+sass:
+  style: expanded
+  sourcemap: always
+
+port: 4001

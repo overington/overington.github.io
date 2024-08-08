@@ -2,7 +2,6 @@
 layout: base
 ---
 
-{% assign content = content | markdownify %}
 {% assign content_align = page.content_align | default: 'center' %}
 {% assign img_src = page.img_src | default: site.banner_img_src %}
 {% assign img_alt = page.img_alt | default: site.banner_img_alt %}
@@ -42,5 +41,7 @@ layout: base
 
 
 <section class="wrapper alignt-left style1">
-    {{ content }}
+    <div class="inner">
+        {{ content }}
+    </div>
 </section>
