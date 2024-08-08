@@ -16,7 +16,7 @@
   justify-content: space-between;
   width: 30px;
   height: 25px;
-  @include breakpoint('>=medium') {
+  @include breakpoint(">=medium") {
     position: fixed;
     top: 20px;
     right: 20px;
@@ -40,24 +40,23 @@
     .bar3 {
       transform: rotate(45deg) translate(-5px, -10px);
     }
-
   }
 }
 
 /**
   * Overlay
   */
-@include breakpoint('>=medium') {
+@include breakpoint(">=medium") {
   .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      display: none;
-      z-index: 900;
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    z-index: 900;
+  }
 }
 
 /**
@@ -117,7 +116,7 @@
     @include vendor(animation, slideDown "0.15s" ease-out);
   }
 
-  @include breakpoint('>=medium') {
+  @include breakpoint(">=medium") {
     position: fixed;
     z-index: 950;
     top: 0;
@@ -129,7 +128,7 @@
       position: fixed;
       right: 0;
       transition: position 0.15s ease-out;
-      @include vendor(animation, slideInRight "0.15s" ease-out); 
+      @include vendor(animation, slideInRight "0.15s" ease-out);
     }
   }
 
@@ -143,34 +142,36 @@
       // border-bottom: 1px solid #ccc;
     }
   }
-
 }
 
+/**
+  * Footer menu
+  */
 .footer-menu {
   ul.nav-menu {
-    display: inline-flex;
     list-style: none;
     padding: 0;
     margin: 0;
+    display: block;
 
-    li {
-      position: relative;
-      padding: 0 1rem;
-      margin: 0 1rem;
+    // li {
+    //   position: relative;
+    // }
+    @include breakpoint(">=medium") {
+      display: inline-flex;
+      gap: 0.8rem;
+      padding: 0;
 
-    }
-
-    &.nav-menu li {
-      &::after {
+      li.menu-item::after {
         /* Add the '/' between items */
-        content: '/';
-        position: absolute;
-        right: -1rem;
+        content: "/";
+        position: relative;
+        right: -0.5rem;
       }
 
-      &:last-child::after {
+      li.menu-item:last-child::after {
         /* Remove the '/' from the last item */
-        content: '';
+        content: "";
       }
     }
   }
