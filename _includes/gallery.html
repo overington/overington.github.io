@@ -1,0 +1,52 @@
+{% comment %}
+# Gallery DIV
+  style_num:
+    - '1': single row of image thumbnails, slide with buttons
+    - '2': multi row of all image thumbnails
+  img_size: 'small', 'medium', 'big' - size of thumbnails
+  lightbox: 'lightbox', '' - enable lightbox
+  onscroll_fade_in: 'on', '' - enable onscroll fade in effect
+
+# Gallery item arguments:
+  img_full: full size image path
+  img_thumb: thumbnail image path
+  img_alt: image alt text
+  caption: image caption
+{% endcomment %}
+
+{% assign style_num = include.style_num | default: '2' %}
+{% if style_num != '1' and style_num != '2' %}
+  {% assign style_num = '2' %}
+{% endif %}
+
+{% assign img_size = include.img_size | default: 'medium' %}
+{% if img_size != 'small' and img_size != 'medium' and img_size != 'big' %}
+  {% assign img_size = 'medium' %}
+{% endif %}
+
+
+{% assign lightbox = include.lightbox | default: 'lightbox' %}
+{% assign onscroll_fade_in = include.onscroll_fade_in | default: 'on' %}
+
+{% assign items = include.items %}
+
+
+
+<div class="gallery style{{ style_num }} {{ img_size }}  {{ lightbox }} {{ onscroll_fade_in }}">
+{% for item in items %}
+    {% assign img_full = item.img_full %}
+    {% assign img_thumb = item.img_thumb | default: item.img_full %}
+    {% assign img_alt = item.img_alt | default: site.name %}
+    {% assign caption = item.caption %}
+    <article>
+      <a href="{{ img_full }}" class="image">
+        <img src="{{ img_thumb }}" alt="{{ img_alt }}" />
+      </a>
+      {% if caption %}
+      <div class="caption">
+        {{ caption }}
+      </div>
+      {% endif %}
+    </article>
+{% endfor %}
+</div>

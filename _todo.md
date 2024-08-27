@@ -1,13 +1,13 @@
 # tasks:
 
-- [ ] post page
+- [ ] gallery include
 
 # Progress:
 ## Pages
 
 - [x] Home
 - [x] CV
-- [ ] Blog
+- [x] Blog
 - [ ] Projects
 - [ ] Drawing
 
@@ -16,7 +16,7 @@
 - [x] base
 - [x] page
 - [x] blog_index
-- [ ] post
+- [x] post
 
 ## includes:
 
