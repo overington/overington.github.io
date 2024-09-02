@@ -26,13 +26,13 @@
 
 
 {% assign lightbox = include.lightbox | default: 'lightbox' %}
-{% assign onscroll_fade_in = include.onscroll_fade_in | default: 'on' %}
+{% assign onscroll_fade_in = include.onscroll_fade_in | default: 'onload-fade-in' %}
 
 {% assign items = include.items %}
 
 
 
-<div class="gallery style{{ style_num }} {{ img_size }}  {{ lightbox }} {{ onscroll_fade_in }}">
+<div class="gallery style{{ style_num }} {{ lightbox }} {{ onscroll_fade_in }} {{ img_size }}">
 {% for item in items %}
     {% assign img_full = item.img_full %}
     {% assign img_thumb = item.img_thumb | default: item.img_full %}
