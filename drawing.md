@@ -66,8 +66,8 @@ The watercolour pencils allow me to blend vibrant hues and create soft transitio
 
   <section>
     <div class="inner">
-      <h2>Contact Improvisation Drawing</h2>
-      <p>2012</p>
+      <h2>Janice Claxton Dance + London Contact Improvisation Drawing</h2>
+      <p>2010</p>
     </div>
     {% include gallery.html
       items=page.gallery_test.contact
