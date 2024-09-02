@@ -1,6 +1,6 @@
 # tasks:
 
-- [ ] gallery include
+- [x] gallery include
 
 # Progress:
 ## Pages
