@@ -20,8 +20,8 @@ navigation:
       href: /
     - name: CV
       href: /cv
-    - name: Projects
-      href: /projects
+    # - name: Projects
+    #   href: /projects
     - name: Blog
       href: /blog
     - name: Drawing
