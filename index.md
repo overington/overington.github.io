@@ -27,5 +27,5 @@ Feel free to get in touch.
     img_alt=""
     fullscreen=true
     orientation='left'
-    image_position='right'
+    img_position='right'
     %}

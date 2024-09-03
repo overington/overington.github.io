@@ -8,8 +8,12 @@
 - [x] Home
 - [x] CV
 - [x] Blog
+    - [ ] Introduction to blog
+    - [ ] Paper review SAM
+    - [ ] Paper review MAE
+    - [ ] Paper review CLIP
 - [ ] Projects
-- [ ] Drawing
+- [x] Drawing
 
 ## layouts:
 
@@ -28,7 +32,7 @@
 - [x] social_links
 - [x] navigation
 - [ ] gallery
-    - [ ] Add a gallery to the drawing page
+    - [x] Add a gallery to the drawing page
     - [ ] Add a gallery to the projects page
 
 ## Archives:

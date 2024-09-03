@@ -8,6 +8,6 @@ description: >
 # featured_img: '/assets/images/banner.jpg'
 featured_img: '/assets/images/gallery/fulls/11.jpg'
 style_num: 1
-invert_scheme: true
-orientation: 'left'
+img_position: 'left'
+orientation: 'right'
 ---

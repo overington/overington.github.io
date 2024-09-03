@@ -134,7 +134,16 @@ Taking part in the graduate rotation programme exposed me to a variety of differ
 {% endcapture %}
 <!-- Render Elements  -->
 
-{% include section_image.html banner=true content=banner_content img_src="/assets/images/profile-samuel_overington.jpg" img_alt="" orientation='right' image_position='right' style_num='3' social_links=site.social %}
+{% include section_image.html
+  banner=true
+  content=banner_content
+  img_src="/assets/images/profile-samuel_overington.jpg"
+  img_alt="Photograph of Samuel Overington"
+  orientation='right'
+  img_position='right'
+  style_num='3'
+  social_links=site.social
+  %}
 
 <div class="inner" style="padding-top:0;margin-top:-2rem;">
 <div class="index align-left" markdown='1'>
@@ -142,18 +151,18 @@ Taking part in the graduate rotation programme exposed me to a variety of differ
 {% include section.html header="## Skills" content=skills %}
 {% include section.html header="## Education" content=education %}
 
-<h2 class="align-center" style="display:block;">
+<h1 class="align-center" style="display:block;">
   Experience
-</h2>
-{% include section.html header="# 2023 (curr)" content=experience_dimension %}
-{% include section.html header="# 2022" content=experience_expedia %}
-{% include section.html header="# 2020" content=experience_arm %}
+</h1>
+{% include section.html header="## 2023 (curr)" content=experience_dimension %}
+{% include section.html header="## 2022" content=experience_expedia %}
+{% include section.html header="## 2020" content=experience_arm %}
 
-<h2 class="align-center" style="display:block;">
+<h1 class="align-center" style="display:block;">
   Internships
-</h2>
-{% include section.html header="# 2019" content=experience_internship_deimos %}
-{% include section.html header="# 2018" content=experience_internship_yobota %}
+</h1>
+{% include section.html header="## 2019" content=experience_internship_deimos %}
+{% include section.html header="## 2018" content=experience_internship_yobota %}
 
 {% include section.html header="" content=experience_freelance %}
 
