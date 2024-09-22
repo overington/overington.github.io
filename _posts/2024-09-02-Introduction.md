@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introduction to my blog"
+title: "Introducing my blog"
 slug: introduction
 date: 2024-09-02 13:30:00 +0100
 featured: true
