@@ -26,9 +26,6 @@ jobs:
       - name: Build Jekyll site
         run: bundle exec jekyll build
 
-      - name: Upload GH-pages artifacts
-        uses: actions/upload-pages-artifact@v3.0.1
-      
   deploy-ghpages:
     needs: build
 
@@ -43,6 +40,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Upload GH-pages artifacts
+        uses: actions/upload-pages-artifact@v3.0.1
+      
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/gh-pages@v4
