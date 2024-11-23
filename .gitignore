@@ -7,3 +7,4 @@ vendor
 
 # macOS
 .DS_Store
+reset-email.sh
