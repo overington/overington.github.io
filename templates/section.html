@@ -1,0 +1,18 @@
+{% extends "_base.html" %}
+
+{% block title %}{{ section.title }}{% endblock title %}
+
+{% block content %}
+    <h1>{{ section.description | default(value=section.title) | safe }}</h1>
+
+    {{ section.content | safe }}
+
+    <p>Here is what comes after the content</p>
+    {% for bit in section.pages %}
+    {{ bit.title  }}
+    {% endfor %}
+
+    <h2>Ancestors</h2>
+    {{ section.ancestors }}
+{% endblock content %}
+

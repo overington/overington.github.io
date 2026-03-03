@@ -2,16 +2,38 @@
 <html lang="en">
 <head>
     {% block head %}
+    <title>{% block title %}{{ config.title }} | {{ config.description }}{% endblock title %}</title>
     <link rel="stylesheet" href="style.css" />
-    <title>{% block title %}{% endblock title %} - My Webpage</title>
     {% endblock head %}
 </head>
 <body>
-    <div id="content">{% block content %}{% endblock content %}</div>
-    <div id="footer">
+    <div id="root">
+    {% block site_header %}
+    <header id="site-header" class="container">
+        <div>
+           <a href="{{ config.base_url }}">{{ config.title }}</a> 
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    {% endblock site_header %}
+    <main id="content" class="container">
+        {% block content %}
+            <div>
+                <h3>{{ config.description }}</h3>
+            </div>
+        {% endblock content %}
+    </main>
+    <footer id="footer" class="container">
         {% block footer %}
-        &copy; Copyright 2008 by <a href="http://domain.invalid/">you</a>.
+        &copy; Copyright 2026 by <a href="{{ config.base_url }}">{{ config.title }}</a>.
         {% endblock footer %}
+    </footer>
     </div>
 </body>
 </html>
