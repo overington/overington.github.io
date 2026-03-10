@@ -1,3 +1,0 @@
-[submodule "sass/vendor/pico"]
-	path = sass/vendor/pico
-	url = https://github.com/picocss/pico
