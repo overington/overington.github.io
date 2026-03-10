@@ -4,8 +4,7 @@
 // Display color as RGB
 @function display-rgb($color) {
   @return string.unquote(
-    "rgb(" + color.channel($color, "red") + ", " + color.channel($color, "green") + ", " +
-      color.channel($color, "blue") + ")"
+    "rgb(" + red($color) + ", " + green($color) + ", " + blue($color) + ")"
   );
 }
 
