@@ -1,0 +1,95 @@
+// $max-width: 768px;
+$max-width: 860px;
+@use "_assets/pico/pico" with (
+    $theme-color: "pumpkin",
+    $breakpoints: (
+        // "sm": ( viewport: 510px,),
+        // md: ( viewport: 700px, ),
+        // lg: ( viewport: $max-width, ),
+        xl: ( viewport: $max-width, ),
+        xxl: ( viewport: $max-width, ),
+    ),
+    $modules: (
+        // "content/code": false,
+        // "forms/input-color": false,
+        // "forms/input-date": false,
+        // "forms/input-file": false,
+        // "forms/input-range": false,
+        // "forms/input-search": false,
+        // "components/accordion": false,
+        // "components/card": false,
+        // "components/dropdown": false,
+        // "components/loading": false,
+        // "components/modal": false,
+        // "components/nav": false,
+        // "components/progress": false,
+        // "components/tooltip": false,
+        // "utilities/accessibility": false,
+        // "utilities/reduce-motion": false
+
+        // Theme
+    "themes/default": true,
+
+    // Layout
+    "layout/document": true,
+    "layout/landmarks": true,
+    "layout/container": true,
+    "layout/section": true,
+    "layout/grid": true,
+    "layout/overflow-auto": true,
+
+    // Content
+    "content/link": true,
+    "content/typography": true,
+    "content/embedded": false,
+    "content/button": false,
+    "content/table": true,
+    "content/code": true,
+    "content/figure": true,
+    "content/misc": true,
+
+    // Forms
+    "forms/basics": false,
+    "forms/checkbox-radio-switch": false,
+    "forms/input-color": false,
+    "forms/input-date": false,
+    "forms/input-file": false,
+    "forms/input-range": false,
+    "forms/input-search": false,
+
+    // Components
+    "components/accordion": false,
+    "components/card": true,
+    "components/dropdown": false,
+    "components/group": false,
+    "components/loading": false,
+    "components/modal": true,
+    "components/nav": true,
+    "components/progress": false,
+    "components/tooltip": true,
+
+    // Utilities
+    "utilities/accessibility": true,
+    "utilities/reduce-motion": false
+    )
+);
+
+:root {
+    --pico-font-family-emoji: "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --pico-font-family-sans-serif: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji',var(--pico-font-family-emoji);
+    // system-ui,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,Helvetica,Arial,"Helvetica Neue",sans-serif,var(--pico-font-family-emoji);
+    --pico-font-family: var(--pico-font-family-sans-serif);
+    // --pico-font-size: 1rem;
+    --pico-line-height: 1.7;
+
+ };
+
+// @import "_assets/theme";
+#site-header {
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+}
+#site-title {
+    h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}}

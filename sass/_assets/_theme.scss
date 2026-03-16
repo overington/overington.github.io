@@ -1,0 +1,52 @@
+$heading-column-gap: 2rem;
+$heading-height: 300px;
+$heading-font-size: 1.5rem;
+
+header#site-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: $heading-column-gap;
+    height: $heading-height;
+
+    a {
+        // No underline links, and no color change on links
+        text-decoration: none;
+        color: var(--pico-h1-color);
+    }
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        font-size: $heading-font-size;
+    }
+
+    #site-title {
+        display: flex;
+        align-items: center;
+        margin: 0;
+    }
+
+    #site-nav {
+        ul {
+            display: flex;
+            gap: $heading-column-gap;
+            margin: 0;
+            padding: 0;
+            font-size: $heading-font-size;
+            li {
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+                align-items: center;
+                font-size: 0.8em;
+            }
+        }
+    }
+}
+
+main#site-content {
+    >div {
+        // padding: var(--pico-spacing-vertical) var(--pico-spacing-horizontal);
+        // background: $indigo-250;
+        // border: 1px solid white;
+    }
+}
