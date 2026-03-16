@@ -1,9 +1,8 @@
 {% extends "_base.html" %}
-{% block title %}PAGE{% endblock title %}
+{% block title %}{{ page.title }} | {{ page.description }}{% endblock title %}
+{# {% block site_header %}
+{{ super() }}
+{% endblock site_header %} #}
 {% block content %}
-    <h1>PAGE</h1>
-    <p class="important">
-      This is a page.
-    </p>
     {{ page.content | safe }}
 {% endblock content %}

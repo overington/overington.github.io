@@ -3,29 +3,32 @@
 <head>
     {% block head %}
     <title>{% block title %}{{ config.title }} | {{ config.description }}{% endblock title %}</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="pico.css" />
     {% endblock head %}
 </head>
 <body>
     <div id="root">
-    {% block site_header %}
     <header id="site-header" class="container">
-        <div>
-           <a href="{{ config.base_url }}">{{ config.title }}</a> 
-        </div>
+    {% block site_header %}
         <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
+           <ul id="site-title">
+                <li>
+                    <h3><a href="{{ config.base_url }}">{{ config.title }}</a></h3>
+                </li>
+            </ul>
+            <ul id="site-nav">
+                <li><a class="contrast" href="/">Home</a></li>
+                <li><a class="contrast" href="/about">About</a></li>
+                <li><a class="contrast" href="/blog">Blog</a></li>
             </ul>
         </nav>
-        
-    </header>
     {% endblock site_header %}
-    <main id="content" class="container">
+    </header>
+    <main id="site-content" class="container">
         {% block content %}
             <div>
                 <h3>{{ config.description }}</h3>
+                <p>{{ config.description }}</p>
             </div>
         {% endblock content %}
     </main>
