@@ -4,9 +4,10 @@
     {% block head %}
     <title>{% block title %}{{ config.title }} | {{ config.description }}{% endblock title %}</title>
     <link rel="stylesheet" href="pico.css" />
+    <meta charset="UTF-8">
     {% endblock head %}
 </head>
-<body>
+<body class="{% block body_class %}{% endblock body_class %}">
     <div id="root">
     <header id="site-header" class="container">
     {% block site_header %}
@@ -26,9 +27,8 @@
     </header>
     <main id="site-content" class="container">
         {% block content %}
-            <div>
-                <h3>{{ config.description }}</h3>
-                <p>{{ config.description }}</p>
+            <div id="front-page">
+                {{ hgroup(title=config.title, subtitle=config.description) }}
             </div>
         {% endblock content %}
     </main>

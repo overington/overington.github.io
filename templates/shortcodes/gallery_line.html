@@ -1,0 +1,20 @@
+{% set height = 300 %}
+{% set num_columns = assets | length %}
+{% set container_width = container_width | default(value=960) %}
+{% set column_width = container_width / num_columns %}
+
+<div class="grid">
+{% for asset in assets -%}
+  {%- if asset is matching("[.](jpg|png)$") -%}
+    {% set image = resize_image(path=asset, width=column_width, height=height) %}
+    <a href="{{ get_url(path=asset) }}" target="_blank">
+      <img src="{{ image.url }}" />
+    </a>
+    <dialog id="{{ image.url | slugify }}" class="modal">
+      <article>
+        <img src="{{ get_url(path=asset) }}" />
+      </article>
+    </dialog>
+  {%- endif %}
+{%- endfor %}
+</div>
