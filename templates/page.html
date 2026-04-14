@@ -1,9 +1,9 @@
 {% extends "_base.html" %}
 {% block title %}{{ page.title }} | {{ page.description }}{% endblock title %}
 {% block body_class %}page-{{ page.slug }}{% endblock body_class %}
-{# {% block site_header %}
+{% block site_header %}
 {{ super() }}
-{% endblock site_header %} #}
+{% endblock site_header %}
 {% block content %}
     {{ page.content | safe }}
 {% endblock content %}

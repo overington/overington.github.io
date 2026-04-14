@@ -3,16 +3,27 @@
 {% block title %}{{ section.title }}{% endblock title %}
 
 {% block content %}
-    <h1>{{ section.description | default(value=section.title) | safe }}</h1>
+    <h1>{{ section.title }}</h1>
+    {% if section.pages %}
+        {% for year, posts in section.pages | group_by(attribute="year") %}
+            <h2>{{ year }}</h2>
+            <ul>
+                {% for post in posts %}
 
-    {{ section.content | safe }}
-
-    <p>Here is what comes after the content</p>
-    {% for bit in section.pages %}
-    {{ bit.title  }}
-    {% endfor %}
-
-    <h2>Ancestors</h2>
-    {{ section.ancestors }}
+                    {% if post.taxonomies.tags is defined %}
+                        {% set tags = post.taxonomies.tags %}
+                    {% else %}
+                        {% set tags = [] %}
+                    {% endif %}
+                    <li><a href="{{ post.permalink | safe }}">{{ post.title }}</a> ({{ tags | join(sep=', ') }})</li>
+                    {# <pre>
+                    {{ post | json_encode(pretty=true) | safe  }}
+                    </pre> #}
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    {% else %}
+    <p>No posts yet.</p>
+    {% endif %}
 {% endblock content %}
 
