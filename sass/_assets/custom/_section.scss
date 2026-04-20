@@ -1,0 +1,47 @@
+/**
+ * Sections template
+ **/
+ @mixin link-less-style{
+    color: var(--pico-text);
+    text-decoration-color: var(--pico-text);
+    text-decoration: none;
+    &:hover {
+        text-decoration: var(--pico-underline);
+        text-decoration: dotted underline;
+    }
+ }
+
+body.section {
+    ul.post-list {
+        padding-left: 0;
+        li.post-item {
+            list-style: none;
+            // set flex container and stack items horizontally, first item to the left, second item to the right
+            display: grid;
+            grid-template-columns: auto auto auto;
+            justify-content: space-between;
+            // title and tag alignment
+            align-items: end;
+            padding: 0.2rem 0;
+
+            .post-link a {
+                @include link-less-style();
+                font-weight: 700;
+            }
+            .post-tags {
+                font-family: monospace;
+                font-size: 0.7rem;
+                a.tag-link {
+                    @include link-less-style();
+                }
+            }
+            .post-description {
+                // Make this span the full width of the grid, so it will be on a new line below the title and tags
+                grid-column-start: 1;
+                grid-column-end: -1;
+                font-size: 0.8rem;
+                color: var(--pico-muted-color);
+            }
+        }
+    }
+}

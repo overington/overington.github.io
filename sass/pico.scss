@@ -84,25 +84,7 @@ $max-width: 860px;
 
  };
 
-// @import "_assets/theme";
-#root {
-    display: flex;
-    flex-direction: column;
-     min-height: 100vh;
-}
-#site-content {
-    flex: 1;
-}
-#site-header {
-    padding-top: 3rem;
-    padding-bottom: 5rem;
-}
-#site-title {
-    h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-}}
-
-#front-page {
-    text-align: center;
-    align-items: center;
-}
+// Footer
+@import "_assets/custom/layout";
+@import "_assets/custom/section";
+@import "_assets/custom/typography";

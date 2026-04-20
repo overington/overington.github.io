@@ -1,0 +1,17 @@
+// Footer layout
+#root {
+    display: flex;
+    flex-direction: column;
+     min-height: 100vh;
+}
+#site-content {
+    // one component with a flexible length
+    flex: 1;
+    padding-bottom: 5rem;
+}
+
+// Header
+#site-header {
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+}

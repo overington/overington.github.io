@@ -3,11 +3,11 @@
 <head>
     {% block head %}
     <title>{% block title %}{{ config.title }} | {{ config.description }}{% endblock title %}</title>
-    <link rel="stylesheet" href="pico.css" />
+    <link rel="stylesheet" href="{{ get_url(path='pico.css', cachebust=true) }}" />
     <meta charset="UTF-8">
     {% endblock head %}
 </head>
-<body class="{% block body_class %}{% endblock body_class %}">
+<body class="{% block body_class %}base{% endblock body_class %}">
     <div id="root">
     <header id="site-header" class="container">
     {% block site_header %}
@@ -18,9 +18,9 @@
                 </li>
             </ul>
             <ul id="site-nav">
-                <li><a class="contrast" href="/">Home</a></li>
-                <li><a class="contrast" href="/about">About</a></li>
-                <li><a class="contrast" href="/blog">Blog</a></li>
+                <li><a class="contrast" href="/posts">posts</a></li>
+                {# <li><a class="contrast" href="/projects">projects</a></li> #}
+                <li><a class="contrast" href="/about">about</a></li>
             </ul>
         </nav>
     {% endblock site_header %}

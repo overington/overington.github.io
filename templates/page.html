@@ -1,9 +1,22 @@
 {% extends "_base.html" %}
-{% block title %}{{ page.title }} | {{ page.description }}{% endblock title %}
-{% block body_class %}page-{{ page.slug }}{% endblock body_class %}
-{% block site_header %}
-{{ super() }}
-{% endblock site_header %}
+{% import "macros/tags.html" as tag_utils %}
+
+
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
+{% block body_class %}page{% endblock body_class %}
+
 {% block content %}
+    <h1>{{ page.title | safe }}</h1>
+    {% if page.date %}
+    <p class="post-date">{{ page.date | date(format="%B %d, %Y") }}</p>
+    {% endif %}
+    {% if page.taxonomies.tags %}
+    <p class="post-tags">Tags: <span>{{ tag_utils::render_tag_links(tags=page.taxonomies.tags) }}</span></p>
+    {% endif %}
+    {% if page.description %}
+    <p>{{ page.description | safe }}</p>
+    <hr>
+    {% endif %}
     {{ page.content | safe }}
+    <hr>
 {% endblock content %}

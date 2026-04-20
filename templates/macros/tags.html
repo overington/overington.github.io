@@ -1,0 +1,14 @@
+{%- macro render_tag_link(tag) -%}
+    {%- set url = get_taxonomy_url(kind="tags", name=tag) -%}
+    <a class="tag-link" href="{{ url }}">#{{ tag }}</a>
+{%- endmacro render_tag_link -%}
+
+{%- macro render_tag_links(tags) -%}
+    {% if not tags %}
+        {{ "" }}
+    {% else %}
+        {%- for tag in tags -%}
+            {{- self::render_tag_link(tag=tag) -}}{%- if not loop.last -%}{{-", "-}}{%- endif -%}
+        {%- endfor -%}
+    {% endif %}
+{%- endmacro render_tag_links -%}

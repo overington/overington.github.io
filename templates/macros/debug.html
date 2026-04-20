@@ -1,0 +1,5 @@
+{% macro show_object(object) %}
+<pre>
+{{ object | json_encode(pretty=true) | safe }}
+</pre>
+{% endmacro %}
