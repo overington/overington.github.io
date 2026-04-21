@@ -15,3 +15,20 @@ Zola content:
 - `zola serve` to start the server
 - `zola build` to build the static files in `public/`
 - `zola check` to check for errors in the content
+
+
+# Task List:
+
+- [ ] Homepage
+    - [ ] Write content copy for homepage
+- [ ] about page
+    - [ ] write copy for about page
+- [ ] Gallery shortcode
+    - [ ] modal close button
+    - [ ] modal width height set to image width height
+
+
+## Content Copy notes
+
+The homepage and about page might be similar in what I am trying to add content about. The about page should go into more details. The homepage should be something like a headline, and something pretty to look at.
+
