@@ -2,21 +2,31 @@
 {% import "macros/tags.html" as tag_utils %}
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
+{% block title %}
+{% set page_title = config.title %}
+{% if page.title %}
+    {% set page_title = page.title ~ " | " ~ page_title %}
+{% endif %}
+{{ page_title }}
+{% endblock title %}
 {% block body_class %}page{% endblock body_class %}
 
 {% block content %}
-    <h1>{{ page.title | safe }}</h1>
-    {% if page.date %}
-    <p class="post-date">{{ page.date | date(format="%B %d, %Y") }}</p>
-    {% endif %}
-    {% if page.taxonomies.tags %}
-    <p class="post-tags">Tags: <span>{{ tag_utils::render_tag_links(tags=page.taxonomies.tags) }}</span></p>
-    {% endif %}
-    {% if page.description %}
-    <p>{{ page.description | safe }}</p>
+    <div class="page-content">
+    <header class="page-header">
+        <h1 class="post-title">{{ page.title | safe }}</h1>
+        {% if page.date %}
+        <p class="post-date">{{ page.date | date(format="%B %d, %Y") }}</p>
+        {% endif %}
+        {% if page.taxonomies.tags %}
+        <p class="post-tags">Tags: <span>{{ tag_utils::render_tag_links(tags=page.taxonomies.tags) }}</span></p>
+        {% endif %}
+        {% if page.description %}
+        <p class="post-description">{{ page.description | safe }}</p>
+        {% endif %}
+    </header>
     <hr>
-    {% endif %}
     {{ page.content | safe }}
+    </div>
     <hr>
 {% endblock content %}

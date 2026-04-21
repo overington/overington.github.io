@@ -1,15 +1,7 @@
 /**
  * Sections template
  **/
- @mixin link-less-style{
-    color: var(--pico-text);
-    text-decoration-color: var(--pico-text);
-    text-decoration: none;
-    &:hover {
-        text-decoration: var(--pico-underline);
-        text-decoration: dotted underline;
-    }
- }
+
 
 body.section {
     ul.post-list {

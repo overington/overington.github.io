@@ -1,10 +1,16 @@
 {% extends "_base.html" %}
 {% import "macros/tags.html" as tag_utils %}
-{% import "macros/debug.html" as debug %}
 
 
 
-{% block title %}{{ section.title }} | {{ config.title }}{% endblock title %}
+
+{% block title %}
+{% set page_title = config.title %}
+{% if section.title %}
+    {% set page_title = section.title ~ " | " ~ page_title %}
+{% endif %}
+{{ page_title }}
+{% endblock title %}
 {% block body_class %}section{% endblock body_class %}
 
 {% block content %}

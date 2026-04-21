@@ -7,14 +7,17 @@
 {% for asset in assets -%}
   {%- if asset is matching("[.](jpg|png)$") -%}
     {% set image = resize_image(path=asset, width=column_width, height=height) %}
-    <a href="{{ get_url(path=asset) }}" target="_blank">
+    {% set image_large = resize_image(path=asset, width=container_width, height=container_width, op='fit') %}
+    <a href="#" data-target="{{ image.static_path | slugify }}" onclick="toggleModal(event)">
       <img src="{{ image.url }}" />
     </a>
-    <dialog id="{{ image.url | slugify }}" class="modal">
+    <dialog id="{{ image.static_path | slugify }}" class="modal">
       <article>
-        <img src="{{ get_url(path=asset) }}" />
+        <img src="{{ image_large.url }}" />
       </article>
     </dialog>
   {%- endif %}
 {%- endfor %}
 </div>
+
+<script src="js/modal.js"></script>

@@ -1,3 +1,4 @@
+{% set modal_render = "" %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,7 @@
         <nav>
            <ul id="site-title">
                 <li>
-                    <h3><a href="{{ config.base_url }}">{{ config.title }}</a></h3>
+                    <h4><a href="{{ config.base_url }}">{{ config.title }}</a></h4>
                 </li>
             </ul>
             <ul id="site-nav">
@@ -38,5 +39,6 @@
         {% endblock footer %}
     </footer>
     </div>
+    {{ modal_render }}
 </body>
 </html>
