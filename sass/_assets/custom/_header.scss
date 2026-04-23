@@ -1,0 +1,9 @@
+@each $page in ("posts", "about") {
+    .page-#{$page} #site-nav a.page-#{$page} {
+        text-decoration-line: underline;
+        text-decoration-style: wavy;
+        text-decoration-color: var(--pico-color-contrast);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+    }
+}

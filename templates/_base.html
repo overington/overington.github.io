@@ -19,9 +19,9 @@
                 </li>
             </ul>
             <ul id="site-nav">
-                <li><a class="contrast" href="/posts">posts</a></li>
+                <li><a class="contrast page-posts" href="/posts">posts</a></li>
                 {# <li><a class="contrast" href="/projects">projects</a></li> #}
-                <li><a class="contrast" href="/about">about</a></li>
+                <li><a class="contrast page-about" href="/about">about</a></li>
             </ul>
         </nav>
     {% endblock site_header %}
@@ -33,9 +33,9 @@
             </div>
         {% endblock content %}
     </main>
-    <footer id="footer" class="container">
+    <footer id="site-footer" class="container">
         {% block footer %}
-        &copy; Copyright 2026 by <a href="{{ config.base_url }}">{{ config.title }}</a>.
+        <p class="small">&copy; Copyright 2026 by <a href="{{ config.base_url }}">{{ config.title }}</a>. </p>
         {% endblock footer %}
     </footer>
     </div>

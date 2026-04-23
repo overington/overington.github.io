@@ -11,7 +11,13 @@
 {% endif %}
 {{ page_title }}
 {% endblock title %}
-{% block body_class %}section{% endblock body_class %}
+{% block body_class %}
+{% set page_class = "" %}
+{% if section.components %}
+    {% set page_class = ["page"] | concat(with=section.components) | join(sep='-') %}
+{% endif %}
+{{ "section " ~ page_class }}
+{% endblock body_class %}
 
 {% block content %}
     <h1>{{ section.title }}</h1>

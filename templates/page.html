@@ -9,12 +9,19 @@
 {% endif %}
 {{ page_title }}
 {% endblock title %}
-{% block body_class %}page{% endblock body_class %}
+
+{% block body_class %}
+{% set page_class = "" %}
+{% if page.components %}
+    {% set page_class = ["page"] | concat(with=page.components) | join(sep='-') %}
+{% endif %}
+{{ "page " ~ page_class }}
+{% endblock body_class %}
 
 {% block content %}
     <div class="page-content">
     <header class="page-header">
-        <h1 class="post-title">{{ page.title | safe }}</h1>
+        <h1 class="post-title">page:{{ page.title | safe }}</h1>
         {% if page.date %}
         <p class="post-date">{{ page.date | date(format="%B %d, %Y") }}</p>
         {% endif %}
