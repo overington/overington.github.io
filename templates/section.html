@@ -24,7 +24,6 @@
     {% if section.content %}
         {{ section.content | safe }}
     {% endif %}
-    <hr>
     {% if section.pages %}
         {% for year, posts in section.pages | group_by(attribute="year") %}
             <h2>{{ year }}</h2>
@@ -45,6 +44,5 @@
     {% else %}
     <p>This section has no content.</p>
     {% endif %}
-    <hr>
 {% endblock content %}
 

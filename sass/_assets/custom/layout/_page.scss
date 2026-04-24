@@ -1,7 +1,9 @@
 body.page {
     .page-header {
-        * {
-            margin: 0;
+        p {
+            margin-top: 0;
+            margin-bottom: 0;
+            line-height: 1.3;
         }
         .post-title {
             margin-top: 0;
@@ -24,7 +26,8 @@ body.page {
         .post-description {
             color: var(--pico-muted-color);
             font-style: italic;
-            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            // margin-top: 0.5rem;
             margin-bottom: 0;
         }
     }
