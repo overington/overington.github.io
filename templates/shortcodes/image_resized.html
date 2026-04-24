@@ -1,0 +1,3 @@
+{% set width = width | default(value=860)%}
+{% set resized = resize_image(format="jpg", path=img_loc, width=width, op="fit_width") %}
+<img alt="{{ alt }}" src="{{ resized.url | safe }}" />

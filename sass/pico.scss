@@ -5,7 +5,7 @@ $max-width: 860px;
     $breakpoints: (
         // "sm": ( viewport: 510px,),
         // md: ( viewport: 700px, ),
-        // lg: ( viewport: $max-width, ),
+        lg: ( viewport: $max-width, ),
         xl: ( viewport: $max-width, ),
         xxl: ( viewport: $max-width, ),
     ),
@@ -81,13 +81,15 @@ $max-width: 860px;
     --pico-font-family: var(--pico-font-family-sans-serif);
     // --pico-font-size: 1rem;
     --pico-line-height: 1.7;
+    --pico-spacing: 0;
 
  };
 
-// Footer
+// Custom functions and mixins
 @import "_assets/custom/mixins";
+
+// Sections and pages
 @import "_assets/custom/layout";
-@import "_assets/custom/header";
-@import "_assets/custom/section";
-@import "_assets/custom/page";
+
+// Site typography
 @import "_assets/custom/typography";

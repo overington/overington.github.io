@@ -1,0 +1,25 @@
+@import "./page";
+@import "./section";
+@import "./header";
+
+// Footer layout
+#root {
+    display: flex;
+    flex-direction: column;
+     min-height: 100vh;
+}
+#site-content {
+    // one component with a flexible length
+    flex: 1;
+    padding-bottom: 5rem;
+}
+
+.page-homepage {
+    #site-content {
+        padding-bottom: 0rem;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

@@ -1,13 +1,14 @@
 {% set height = 300 %}
+{% set container_width = container_width | default(value=860) %}
 {% set num_columns = assets | length %}
-{% set container_width = container_width | default(value=960) %}
-{% set column_width = container_width / num_columns %}
+{% set column_width = container_width / num_columns | round(method="ceil") | int %}
 
 <div class="grid">
 {% for asset in assets -%}
   {%- if asset is matching("[.](jpg|png)$") -%}
     {% set image = resize_image(path=asset, width=column_width, height=height) %}
     {% set image_large = resize_image(path=asset, width=container_width, height=container_width, op='fit') %}
+    <div>
     <a href="#" data-target="{{ image.static_path | slugify }}" onclick="toggleModal(event)">
       <img src="{{ image.url }}" />
     </a>
@@ -16,6 +17,7 @@
         <img src="{{ image_large.url }}" />
       </article>
     </dialog>
+    </div>
   {%- endif %}
 {%- endfor %}
 </div>

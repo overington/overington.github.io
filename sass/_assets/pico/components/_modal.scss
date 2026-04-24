@@ -55,6 +55,12 @@
         }
       }
 
+      @if map.get($breakpoints, "lg") {
+        @media (min-width: map.get(map.get($breakpoints, "lg"), "breakpoint")) {
+          max-width: map.get(map.get($breakpoints, "lg"), "viewport");
+        }
+      }
+
       > header {
         > * {
           margin-bottom: 0;
