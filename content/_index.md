@@ -2,5 +2,5 @@
 title = "_index.md title"
 +++
 
-{{ gallery_line(assets=["img/tmp/island.jpg", "img/tmp/kagoshima.jpg", "img/tmp/shiminami.jpg", "img/tmp/sunset.jpg", "img/tmp/stp-eve.jpg", "img/tmp/gorge.jpg"]) }}
+{{ gallery_line(assets=["media/photos/island.jpg", "media/photos/kagoshima.jpg", "media/photos/shiminami.jpg", "media/photos/sunset.jpg", "media/photos/stp-eve.jpg", "media/photos/gorge.jpg"]) }}
 

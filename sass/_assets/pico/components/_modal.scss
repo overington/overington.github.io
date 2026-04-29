@@ -43,6 +43,10 @@
       margin: var(#{$css-var-prefix}spacing);
       overflow: auto;
 
+      img {
+        display: block;
+      }
+
       @if map.get($breakpoints, "sm") {
         @media (min-width: map.get(map.get($breakpoints, "sm"), "breakpoint")) {
           max-width: map.get(map.get($breakpoints, "sm"), "viewport");

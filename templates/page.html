@@ -21,15 +21,17 @@
 {% block content %}
     <div class="page-content">
     <header class="page-header">
-        <h1 class="post-title">{{ page.title | safe }}</h1>
+        <hgroup>
         {% if page.date %}
-        <p class="post-date">{{ page.date | date(format="%B %d, %Y") }}</p>
+        <p class="post-date">{{ page.date | date(format="%_d %B %Y") }}</p>
         {% endif %}
-        {% if page.taxonomies.tags %}
-        <p class="post-tags">Tags: <span>{{ tag_utils::render_tag_links(tags=page.taxonomies.tags) }}</span></p>
-        {% endif %}
+        <h1 class="post-title">{{ page.title | safe }}</h1>
         {% if page.description %}
         <p class="post-description">{{ page.description | safe }}</p>
+        {% endif %}
+        </hgroup>
+        {% if page.taxonomies.tags %}
+        <p class="post-tags">Tags: <span>{{ tag_utils::render_tag_links(tags=page.taxonomies.tags) }}</span></p>
         {% endif %}
     </header>
     {{ page.content | safe }}
