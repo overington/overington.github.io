@@ -1,5 +1,6 @@
 .DS_Store
 
 public/
-static/media/
+static/media/*
+!static/media/sync.sh
 static/processed_images/

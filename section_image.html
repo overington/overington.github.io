@@ -1,0 +1,59 @@
+{#
+Section with image
+
+Options:
+- content: markdown content
+- content_align: left, center, right
+- img_src: image source
+- img_alt: image alt text
+- orientation: location of image - 'left', 'right'
+- section_type: type of section, 'banner', 'spotlight'
+- img_position: top, center, bottom
+- fullscreen: true or false
+- style_num: 1-5
+    - 1: box image on left or right
+    - 2: full width image on top or bottom
+- color_num: 1-6
+    - 1: color1
+    - 2: color2
+    - 3: color3
+    - 4: color4
+    - 5: color5
+    - 6: color6
+- invert_scheme: true or false
+#}
+
+{% set fullscreen = fullscreen is defined and fullscreen and (fullscreen == true or fullscreen == "true") ? "fullscreen" : "" %}
+
+{% set colour_class = "" %}
+{% if color_num is defined %}
+    {% match color_num %}
+        {% when 1 or "1" %}
+            {% set colour_class = "color1" %}
+        {% when 2 or "2" %}
+            {% set colour_class = "color2" %}
+        {% when 3 or "3" %}
+            {% set colour_class = "color3" %}
+        {% when 4 or "4" %}
+            {% set colour_class = "color4" %}
+        {% when 5 or "5" %}
+            {% set colour_class = "color5" %}
+        {% when 6 or "6" %}
+            {% set colour_class = "color6" %}
+        {% else %}
+            {% set colour_class = "" %}
+    {% endmatch %}
+{% endif %}
+
+{% set invert = invert_scheme is defined and invert_scheme and (invert_scheme == true or invert_scheme == "true") ? "invert" : "" %}
+
+<section class="{{ section_type | default(value="banner") }} style{{ style_num | default(value="1") }} {{ colour_class }} {{ invert }} orient-{{ orientation | default(value="left") }} content-align-{{ content_align | default(value="left") }} {{ fullscreen }} image-position-{{ img_position | default(value="center") }} onload-image-fade-in onload-content-fade-right">
+    <div class="content">
+        {{ content | markdown }}
+    </div>
+    {% if img_src is defined and img_src %}
+    <div class="image">
+        <img src="{{ img_src }}" alt="{{ img_alt | default(value="") }}">
+    </div>
+    {% endif %}
+</section>

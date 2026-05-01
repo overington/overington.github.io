@@ -36,7 +36,12 @@
     <footer id="site-footer" class="container">
         {% block footer %}
         <hr>
-        <p class="small">&copy; Copyright 2026 by <a href="{{ config.base_url }}">{{ config.title }}</a>. </p>
+        <div class="grid">
+            <div>
+                <p class="small">&copy; Copyright 2026 by <a href="{{ config.base_url }}">{{ config.title }}</a>. </p>
+            </div>
+            {% include "shortcodes/social_links.html" %}
+        </div>
         {% endblock footer %}
     </footer>
     </div>

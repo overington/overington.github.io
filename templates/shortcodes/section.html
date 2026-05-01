@@ -1,0 +1,10 @@
+<section>
+    {% if header %}
+    <header>
+        {{ header | markdown | safe }}
+    </header>
+    {% endif %}
+    <div class="content">
+        {{ body | markdown | safe }}
+    </div>
+</section>

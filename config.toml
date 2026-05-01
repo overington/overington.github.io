@@ -21,3 +21,8 @@ theme = "tokyo-night"
 
 [extra]
 # Put all your custom variables here
+social_links = [
+    { name = "GitHub", href = "https://github.com/overington"},
+    { name = "LinkedIn", href = "https://linkedin.com/in/scoverington"},
+    { name = "Mastodon", href = "https://mathstodon.xyz/@overington"},
+]

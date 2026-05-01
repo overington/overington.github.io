@@ -20,6 +20,7 @@
 
 {% block content %}
     <div class="page-content">
+    {% block page_header %}
     <header class="page-header">
         <hgroup>
         {% if page.date %}
@@ -34,6 +35,9 @@
         <p class="post-tags">Tags: <span>{{ tag_utils::render_tag_links(tags=page.taxonomies.tags) }}</span></p>
         {% endif %}
     </header>
+    {% endblock page_header %}
+    {% block page_content %}
     {{ page.content | safe }}
+    {% endblock page_content %}
     </div>
 {% endblock content %}
