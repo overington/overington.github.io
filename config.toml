@@ -22,7 +22,13 @@ theme = "tokyo-night"
 [extra]
 # Put all your custom variables here
 social_links = [
-    { name = "GitHub", href = "https://github.com/overington"},
-    { name = "LinkedIn", href = "https://linkedin.com/in/scoverington"},
-    { name = "Mastodon", href = "https://mathstodon.xyz/@overington"},
+    { label = "GitHub", href = "https://github.com/overington"},
+    { label = "LinkedIn", href = "https://linkedin.com/in/scoverington"},
+    { label = "Mastodon", href = "https://mathstodon.xyz/@overington"},
+]
+site_nav = [
+    { label = "posts", href = "/posts", link_class = ["contrast","page-posts"]},
+    # { label = "projects", href = "/projects", link_class = ["contrast","page-projects"]},
+    { label = "about", href = "/about", link_class = ["contrast","page-about"]},
+    { label = "cv", href = "/cv", link_class = ["contrast","page-cv"]},
 ]

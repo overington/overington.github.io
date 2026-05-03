@@ -1,8 +1,4 @@
+{% import "macros/menu.html" as menu %}
 <nav>
-    <ul class="menu icons">
-        {% for item in config.extra.social_links %} {# fa-{{ item.fa_name |
-        default(value=item.name) }} #}
-        <li><a href="{{ item.href }}"><span class="label">{{ item.name }}</span></a></li>
-        {% endfor %}
-    </ul>
+    {{ menu::menu(items=config.extra.social_links, ul_class="menu icons") }}
 </nav>

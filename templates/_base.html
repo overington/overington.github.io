@@ -1,50 +1,57 @@
-{% set modal_render = "" %}
-<!DOCTYPE html>
+{% import "macros/menu.html" as menu %}
+<!doctype html>
 <html lang="en">
-<head>
-    {% block head %}
-    <title>{% block title %}{{ config.title }} | {{ config.description }}{% endblock title %}</title>
-    <link rel="stylesheet" href="{{ get_url(path='pico.css', cachebust=true) }}" />
-    <meta charset="UTF-8">
-    {% endblock head %}
-</head>
-<body class="{% block body_class %}base{% endblock body_class %}">
-    <div id="root">
-    <header id="site-header" class="container">
-    {% block site_header %}
-        <nav>
-           <ul id="site-title">
-                <li>
-                    <h4><a href="{{ config.base_url }}">{{ config.title }}</a></h4>
-                </li>
-            </ul>
-            <ul id="site-nav">
-                <li><a class="contrast page-posts" href="/posts">posts</a></li>
-                {# <li><a class="contrast" href="/projects">projects</a></li> #}
-                <li><a class="contrast page-about" href="/about">about</a></li>
-            </ul>
-        </nav>
-    {% endblock site_header %}
-    </header>
-    <main id="site-content" class="container">
-        {% block content %}
-            <div id="front-page">
-                {{ hgroup(title=config.title, subtitle=config.description) }}
-            </div>
-        {% endblock content %}
-    </main>
-    <footer id="site-footer" class="container">
-        {% block footer %}
-        <hr>
-        <div class="grid">
-            <div>
-                <p class="small">&copy; Copyright 2026 by <a href="{{ config.base_url }}">{{ config.title }}</a>. </p>
-            </div>
-            {% include "shortcodes/social_links.html" %}
+    <head>
+        {% block head %}
+        <title>
+            {% block title %}{{ config.title }} | {{ config.description }}{% endblock title %}
+        </title>
+        <link
+            rel="stylesheet"
+            href="{{ get_url(path='pico.css', cachebust=true) }}"
+        />
+        <meta charset="UTF-8" />
+        {% endblock head %}
+    </head>
+    <body class="{% block body_class %}base{% endblock body_class %}">
+        <div id="root">
+            <header id="site-header" class="container">
+                {% block site_header %}
+                <nav>
+                    <ul id="site-title">
+                        <li>
+                            <h4>
+                                <a href="{{ config.base_url }}"
+                                    >{{ config.title }}</a
+                                >
+                            </h4>
+                        </li>
+                    </ul>
+                    {{ menu::menu(items=config.extra.site_nav, ul_id="site-nav") }}
+                </nav>
+                {% endblock site_header %}
+            </header>
+            <main id="site-content" class="container">
+                {% block content %}
+                <div id="front-page">
+                    {{ hgroup(title=config.title, subtitle=config.description) }}
+                </div>
+                {% endblock content %}
+            </main>
+            <footer id="site-footer" class="container">
+                {% block footer %}
+                <hr />
+                <div class="grid">
+                    <div>
+                        <p class="small">
+                            &copy; Copyright 2026 by
+                            <a href="{{ config.base_url }}">{{ config.title }}</a>.
+                        </p>
+                    </div>
+                    {% include "shortcodes/social_links.html" %}
+                </div>
+                {% endblock footer %}
+            </footer>
         </div>
-        {% endblock footer %}
-    </footer>
-    </div>
-    {{ modal_render }}
-</body>
+    </body>
 </html>

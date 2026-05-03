@@ -1,0 +1,18 @@
+{% macro menu(items, ul_class="", ul_id="") %}
+<ul 
+  {% if ul_id %}id="{{ ul_id }}"{% endif %} 
+  {% if ul_class %}class="{{ ul_class }}"{% endif %}
+>
+  {% for item in items %}
+    {# Use the default filter to avoid 'Variable not found' errors #}
+    <li>
+      <a 
+        href="{{ item.href }}" 
+        class="{% if item.link_class %}{{ item.link_class | join(sep=' ') }}{% endif %} {% if is_active %}active{% endif %}"
+      >
+        {{ item.label }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+{% endmacro %}
