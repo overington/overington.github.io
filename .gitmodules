@@ -1,0 +1,3 @@
+[submodule "themes/picolo"]
+	path = themes/picolo
+	url = https://github.com/overington/picolo-theme-zola.git
