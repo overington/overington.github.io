@@ -101,8 +101,8 @@ turpis pretium. Quisque sed tristique felis.
 </div>
 
 <div class="grid">
-    **Bold**
-    *Italic*
+    <b>Bold</b>
+    <i>Italic</i>
     <u>Underline</u>
 </div>
 <div class="grid">

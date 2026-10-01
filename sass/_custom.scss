@@ -1,11 +1,6 @@
 // Custom Styles
 // Add your own custom styles beyond PicoCSS defaults
 
-// Override container width for optimal reading experience
-// .container {
-//     max-width: 750px;
-// }
-
 // Navbar Styling - Theme Aware
 header:has(nav.site-nav) {
     // Apply theme primary color as background
@@ -213,4 +208,30 @@ nav[aria-label="pagination"] {
         content: " (" attr(href) ")";
         font-size: 0.8em;
     }
+}
+.home-intro .home-intro-text p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    font-weight: 300;
+    color: var(--pico-muted-color);
+    margin-bottom: 1rem;
+}
+/* One column by default (below 768px) */
+.home-intro.grid {
+  grid-template-columns: 1fr;
+}
+
+/* Two columns from Pico's medium breakpoint upward */
+@media (min-width: 768px) {
+  .home-intro.grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /*
+   * When the final item is also an odd-numbered item,
+   * it is unpaired, so span both columns.
+   */
+  .home-intro.grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
 }

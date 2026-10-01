@@ -2,18 +2,23 @@
 title = "Welcome"
 +++
 
-# Welcome to picolo
 
-A minimal, semantic blog theme built with [Zola](https://www.getzola.org) and [PicoCSS](https://picocss.com).
+<div class="home-intro grid">
+<div class="home-intro-text">
 
-This theme emphasizes clean HTML, responsive design, and automatic dark mode support — all without JavaScript dependencies.
+# Hey, I'm Samuel!
 
-## Features
+I work as a Senior Machine Learning Engineer at [Dimension Studio](https://dimensionstudio.co/){.contrast}, turning cutting-edge research into practical tools for virtual production. My work extends across the wider computer vision landscape, including real-time depth and segmentation, multi-object tracking, and model optimisations for low-latency and real-time inference.
 
-- **Minimal & Semantic**: Class-light HTML following PicoCSS philosophy
-- **Responsive**: Works beautifully on all devices
-- **Dark Mode**: Automatic theme switching based on system preferences
-- **Fast**: No JavaScript, just clean HTML and CSS
-- **Customizable**: Easy to extend via CSS variables and Sass
+Beyond my day job, I love bridging technical engineering with creative practice. Right now, I’m working on a project for [Link in my Bio Productions](https://www.linkinmybioproductions.com/), as well as building a local audio transcription and content management tool. Always open to new ideas and collaborations.
+
+</div>
+<div>
+{{ <img.resize src="media/IMG20260921083938.jpg" alt="A touch of autmn" /> }}
+</div>
+<div>
 
 Check out the [blog](/blog) to see the theme in action.
+
+</div>
+</div>
