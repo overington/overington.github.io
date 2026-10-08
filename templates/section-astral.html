@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }} | {{ super() }}{% endblock %}
+
+{% block description %}
+{% if section.description %}{{ section.description }}{% else %}{{ super() }}{% endif %}
+{% endblock %}
+
+{% block extra_head %}
+<script src="{{ get_url(path="js/astral-panels.js") }}" defer></script>
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block main_attributes %} class="astral-main"{% endblock main_attributes %}
+
+{% block content %}
+<section class="container astral" data-astral aria-labelledby="astral-title">
+    <header class="astral-header">
+        <h1 id="astral-title">{{ section.title }}</h1>
+        {% if section.description %}
+        <p>{{ section.description | markdown(inline=true) | safe }}</p>
+        {% endif %}
+        {% if section.content %}
+        <div class="astral-section-content">{{ section.content | safe }}</div>
+        {% endif %}
+    </header>
+
+    <nav class="astral-nav" aria-label="{{ section.title }} sections">
+        <ul>
+            {% for page in section.pages %}
+            {% set style = page.extra.astral_style | default(value=page.extra.style | default(value="content")) %}
+            <li>
+                {% if style == "external" %}
+                <a href="{{ page.extra.url }}" target="_blank" rel="noopener noreferrer">
+                {% else %}
+                <a href="#{{ page.slug }}" data-astral-nav>
+                {% endif %}
+                    {% if page.extra.icon %}
+                    <img src="{{ page.extra.icon }}" alt="" aria-hidden="true">
+                    {% endif %}
+                    <span>{{ page.extra.nav_label | default(value=page.title) }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+
+    <div class="astral-panels">
+        {% for page in section.pages %}
+        {% set style = page.extra.astral_style | default(value=page.extra.style | default(value="content")) %}
+        {% if style != "external" %}
+        <article id="{{ page.slug }}" class="astral-panel astral-panel--{{ style }}" data-astral-panel tabindex="-1">
+            <header>
+                <h2>{{ page.extra.heading_text | default(value=page.title) }}</h2>
+                {% if page.extra.sub_heading %}
+                <p class="astral-subheading">{{ page.extra.sub_heading }}</p>
+                {% endif %}
+            </header>
+
+            {% if page.extra.content %}
+            <p>{{ page.extra.content | markdown(inline=true) | safe }}</p>
+            {% endif %}
+
+            {% if style == "card" %}
+            <div class="astral-card">
+                <div class="astral-card-content">{{ page.content | safe }}</div>
+                {% if page.extra.image %}
+                <img class="astral-card-image" src="{{ page.extra.image }}" alt="{{ page.extra.image_alt | default(value=page.title) }}">
+                {% endif %}
+            </div>
+            {% elif style == "gallery" %}
+            {{ page.content | safe }}
+            {% if page.extra.gallery %}
+            <div class="astral-gallery">
+                {% for image in page.extra.gallery %}
+                <a href="{{ image }}" aria-label="View {{ page.title }} image {{ loop.index }}">
+                    <img src="{{ image }}" alt="{{ page.extra.gallery_alt | default(value=page.title) }}" loading="lazy">
+                </a>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% else %}
+            {{ page.content | safe }}
+            {% endif %}
+        </article>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock content %}

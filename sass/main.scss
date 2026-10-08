@@ -1,14 +1,26 @@
 // picolo - Main Stylesheet
 // This file imports all custom styles and overrides
 
-// // Load local or remote font definitions
-@import "fonts";
+// Settings and design tokens
+@import "settings/fonts";
+@import "settings/variables";
+@import "settings/colours";
 
-// Import CSS variable overrides for PicoCSS
-@import "variables";
-@import "colours";
+// Layouts
+@import "layout/site";
+@import "layout/astral";
 
-// Import custom styles
-@import "custom";
+// Reusable components
+@import "components/navigation";
+@import "components/pagination";
+@import "components/theme-toggle";
 
-// @import "testpage";
+// Base content elements
+@import "base/content";
+
+// Page-specific styles
+@import "pages/home";
+// @import "pages/colour-playground";
+
+// Print-only styles
+@import "utilities/print";

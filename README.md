@@ -51,6 +51,47 @@ zola serve
 
 Zola serves the local preview at `http://127.0.0.1:1111` by default.
 
+## Astral-style section
+
+`templates/section-astral.html` provides an Astral-inspired section layout using PicoCSS. It renders every child page in a section as a panel and supplies an in-page navigation link for it. `static/js/astral-panels.js` progressively enhances the layout: it shows the selected hash panel, marks its navigation item active, and supports direct links plus browser back/forward. Without JavaScript, every panel remains visible and usable. Use it from the section index:
+
+```toml
++++
+title = "Home"
+description = "Short description"
+template = "section-astral.html"
+sort_by = "weight"
++++
+```
+
+Configure each child page with Zola's `[extra]` table. Arbitrary front-matter values must be placed in this table; values such as `style` at the top level are not page metadata exposed to the template.
+
+```toml
++++
+title = "Home"
+weight = 10
+
+[extra]
+style = "card"
+icon = "/images/icon-home.svg"
+heading_text = "Samuel Overington"
+sub_heading = "Senior Machine Learning Engineer"
+image = "/images/me.png"
+image_alt = "Samuel Overington"
++++
+
+A short introduction written in Markdown.
+```
+
+Supported `style` values are:
+
+- `card` — a responsive text-and-image introduction panel.
+- `gallery` — Markdown content plus a responsive gallery. Set `gallery` to an array of image paths and optionally `gallery_alt`.
+- `content` — a regular Markdown panel; this is the default.
+- `external` — adds a navigation item that opens `url` in a new tab, without rendering a panel.
+
+For example, a gallery page can use `[extra]` values `style = "gallery"`, `heading_text = "Work"`, and `gallery = ["/images/work-1.png", "/images/work-2.png"]`. An external page uses `style = "external"` and `url = "https://example.com"`. `content` may also be set in `[extra]` for a short preamble, but Markdown below the front matter is the preferred content field. Place local images under `static/` and use their root-relative public paths (for example, `static/images/me.png` becomes `/images/me.png`).
+
 ## Publishing from a local machine
 
 Publishing uses SSH and `rsync`; it does not push the generated site to GitHub. First, confirm the correct document root for the domain in cPanel. The domain's root may be `public_html`, but use the directory actually configured for the domain.

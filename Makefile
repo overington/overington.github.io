@@ -14,6 +14,9 @@ check: theme
 build: check
 	$(ZOLA) build
 
+dev: check
+	$(ZOLA) serve
+
 deploy-preview: build
 	@test -n "$(DEPLOY_HOST)" || (echo "Set DEPLOY_HOST"; exit 1)
 	@test -n "$(DEPLOY_PATH)" || (echo "Set DEPLOY_PATH"; exit 1)
