@@ -3,17 +3,14 @@ title = "Welcome"
 +++
 
 
-{% <ui.hero
-    images={["media/photos/touch-of-autumn.jpg", "media/photos/sunset.jpg"]}
-    width={1600}
-    height={720}
-    lighten={0.25}
+{{ <ui.hero
+    images={["media/photos/sunset.jpg", "media/photos/foggy-london-street.jpg"]}
+    image_width={1600}
+    image_height={720}
+    height="calc(100svh - var(--site-nav-height))"
+    lighten={0.75}
     slider={true}
-> %}
-
-Check out the [blog](/blog) to see the theme in action.
-
-{% </ui.hero> %}
+/> }}
       
 
 {% <ui.media_text
