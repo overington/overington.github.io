@@ -32,6 +32,7 @@
     */
    const variables = [
      ...new Set([
+
        "--pico-text-selection-color",
        "--pico-primary",
        "--pico-primary-background",
@@ -40,8 +41,12 @@
        "--pico-primary-hover-background",
        "--pico-primary-focus",
        "--pico-primary-inverse",
-       "--header-colour-start",
-       "--header-colour-end",
+       "--pico-card-background-color",
+
+       "--site-nav-text-color",
+       "--site-nav-hover-color",
+       "--site-nav-focus-color",
+
        ...Object.keys(config.light ?? {}),
        ...Object.keys(config.dark ?? {}),
      ]),

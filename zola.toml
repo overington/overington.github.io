@@ -26,3 +26,8 @@ nav_items = [
     { path = "/blog", name = "Blog" },
     { path = "/about", name = "About" }
 ]
+
+# Override theme image resize defaults here when needed, for example:
+# [extra.picolo.image_defaults]
+# media_text_width = 1600
+# media_text_height = 1200

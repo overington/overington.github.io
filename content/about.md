@@ -5,13 +5,14 @@ description = "Learn more about this theme and how it was built"
 
 # Samuel Overington - Curriculum Vitae
 
-**Dimension Studio, London UK** (Nov 2023 -- Present)
+
+## **Dimension Studio, London UK** (Nov 2023 -- Present)
 
 *Senior Software Engineer - Machine Learning and Research (Jun 2025) -- Present Software Engineer - Machine Learning and Research*
 
 Developing and optimising production-ready machine learning and computer vision pipelines based on state-of-the-art research to power live experiences and virtual production.
 
-**Live human matting project for Omega at Paris Olympic Games 2024** *\[Pytorch, OpenCV, Matting\]*
+### **Live human matting project for Omega at Paris Olympic Games 2024** *\[Pytorch, OpenCV, Matting\]*
 
 Developed and deployed a distributed ML-based video processing pipeline for a live activation (300+ completed renders/day), enabling multi-camera alignment, ML based background matting, and automated editing. Key achievements:
 
@@ -20,7 +21,7 @@ Developed and deployed a distributed ML-based video processing pipeline for a li
 - Optimised VRAM utilisation and system throughput by implementing a zero-copy GPU memory strategy, keeping video tensors resident in GPU memory throughout decoding, inference, and encoding stages to meet a strict 5-minute end-to-end processing SLA.
 - Developed a deterministic computer vision algorithm to anchor video timelines by localising and detecting a single-frame optical flash event, cross-referencing it with JSON-based finish-line metadata.
 
-**Real-time depth & human segmentation in UE** *\[PyTorch, OpenCV, ONNX, TensorRT, Unreal Engine, C++, Segmentation, Depth Estimation, Object Tracking\]*
+### **Real-time depth & human segmentation in UE** *\[PyTorch, OpenCV, ONNX, TensorRT, Unreal Engine, C++, Segmentation, Depth Estimation, Object Tracking\]*
 
 Engineered a high-performance Unreal Engine C++ Plugin integrating live video streams with synchronised machine learning models for real-time depth estimation and human segmentation using TensorRT runtime. Key achievements:
 
@@ -29,7 +30,7 @@ Engineered a high-performance Unreal Engine C++ Plugin integrating live video st
 - Designed a zero-copy GPU memory pipeline, ensuring tensors remained entirely in VRAM between depth inference, segmentation steps, and Unreal Engine texture registration to eliminate CPU-GPU serialisation bottlenecks.
 - Optimised high-throughput tensor pre- and post-processing routines to run concurrently, aligning inference latency with the engine’s main render thread to maintain a stable, real-time frame rate.
 
-**Semantic segmentation and matting pipeline for virtual production** *\[PyTorch, OpenCV, ML Video Matting\]*
+### **Semantic segmentation and matting pipeline for virtual production** *\[PyTorch, OpenCV, ML Video Matting\]*
 
 Leading the development of an automated segmentation pipeline to generate high-quality alpha mattes from raw footage for virtual production. Key achievements:
 
@@ -37,13 +38,13 @@ Leading the development of an automated segmentation pipeline to generate high-q
 - Integrated zero-shot text-to-mask segmentation methods and refined outputs using generative AI models to create precise, production-ready alpha mattes.
 - Optimised the output for compositing tools like Nuke and Resolve by creating Cryptomatte files, streamlining the post-production process.
 
-**Expedia, London UK** (Feb 2022 -- Nov 2023)
+## **Expedia, London UK** (Feb 2022 -- Nov 2023)
 
 *Machine Learning Engineer - Growth Marketing & Technology (meta-bidding team)*
 
 Architected and scaled data infrastructure for training, deploying, and running high-throughput machine learning prediction pipelines on AWS for meta-bidding and business intelligence.
 
-**Arm, Cambridge UK** (Nov 2020 -- Jan 2022)
+## **Arm, Cambridge UK** (Nov 2020 -- Jan 2022)
 
 *Software Engineer (April 2021) Graduate Engineer*
 
@@ -53,12 +54,12 @@ Participated in Arm’s graduate rotation programme, gaining hands-on experience
 - **Applied ML team, *Dynamic hand gesture recognition, and visual wake words*** (8 months): Lead research engineer conducting a literature review of models and datasets, training and optimising a video understanding model for gesture recognition, and implementing a data generator pipeline using OpenCV for large video datasets. Applying state-of-the-art techniques to enhance performance on low-power, IoT, and embedded Arm IP.
 - **ML Tooling Team, *IPSS-ML (IP Selection Sandbox for ML applications)*** (4 months): Part of the team developing a middle-ware application to simulate and test ML applications on accelerated (NPU) and regular (M/A class processors) Arm IP using fast- and cycle-models.
 
-**Internships**:
+## **Internships**:
 
 - *Deimos Space UK*, Oxfordshire, July – Sept 2019. *Computer Vision and Machine Learning research intern*
 - *Yobota*, London, Jun – Sep 2018. *Software Engineer intern*
 
-**Selected freelance**:
+## **Selected freelance**:
 
 - *Stillnessinyoga*, Remote, The Netherlands Web developer / Digital content development (June 2016 – 2020).
 - *LVSC*, Web Developer (2013 – 2015)

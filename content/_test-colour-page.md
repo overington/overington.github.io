@@ -1,6 +1,8 @@
 +++
 title = "Test page to see example"
 description = "This is a test page to see how the example works."
+slug = "test"
+draft = true
 +++
 
 <section id="colour-playground" aria-labelledby="colour-playground-title">
