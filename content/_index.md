@@ -6,7 +6,6 @@ description = "Engineering, machine learning, and creative technology."
 images=[
 ]
 height="header"
-use_description = true
 slider=true
 lighten=0.95
 class_name="home-hero"

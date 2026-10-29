@@ -11,6 +11,11 @@ build_search_index = false
 
 theme = "picolo"
 
+taxonomies = [
+    { name = "categories", render = true, feed = false },
+    { name = "tags", render = true, feed = false },
+]
+
 [markdown]
 
 [markdown.highlighting]

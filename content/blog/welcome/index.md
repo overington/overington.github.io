@@ -2,12 +2,15 @@
 title = "Welcome!"
 date = 2026-10-22
 description = "Introducing a place to collect my ideas and thoughts at samueloverington.com/blog/ and what the shape of this will look like"
-category = "notes"
-[ extra.hero ]
+
+[taxonomies]
+categories = ["notes"]
+tags = ["writing", "notes"]
+
+[extra.hero]
 images = ["content/blog/welcome/atsuma-no-kuma.jpg"]
-use_title = true
-use_description = true
 height = "header"
+text_color = "inverse"
 +++
 
 # Welcome!
