@@ -1,6 +1,9 @@
 +++
 title = "Curriculum Vitae"
 description = "Samuel Overington"
+
+[extra]
+container_width = "4xl"
 +++
 
 
