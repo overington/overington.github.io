@@ -15,46 +15,19 @@ text_color = "inverse"
 
 # Welcome!
 
-<!-- 
-- Welcome
-- platform
-- Why am I writing
--->
 Hey, I'm Samuel - this blog's author, and I am trying to do better. My desk (AND my desktop) are both littered with projects and ideas in various states of completion, and I am trying to make a platform as a way to complete them and show them off. I'm doing this because I have a tendency to let projects slide; giving up on them for many reasons: time, organisation, fear of getting things wrong, nowhere to put it when it's done... etc. AND I WANT TO DO BETTER! So welcome to my new creative space for me to spend time processing my thoughts, ideas through writing and experimenting, and presenting them here.
 
-<!--
-I have some questions, that I am trying to ask myself here:
-
-- Why do I want to write a blog?
-- What is my process of writing?
-- How does writing help me?
-
-I will spend time with my thoughts, 
- and then go through an editing process.
-Then I'll read over what I have written
--->
-
-
-
-<!-- Why do I want to write a blog -->
 Writing, for me, is a non-linear process. This is half manifesto, and half explanation for how my mind works (in non-linear ways). I want to get my ideas out of my head and onto the page to help me make connections between them, clarify what I intend to say, and then repeating this process into a better understanding, or perhaps even a new idea altogether.
 
-<!-- Saying it first -->
 Often I'll have a number of disparate concepts bouncing around in my head, and a few connecting ideas how they might string together to form the basis of an understanding; so I'll start writing my stream-of-consciousness, and capture them on the page (sometimes starting with pen and paper). This places my ideas as words physically next to one another, and helps me to see the connections between them, or perhaps the lack thereof.
 
-<!-- Clarifying what I mean -->
 Writing is also about finding a way to communicate my ideas more clearly. Further reading passes over my initial writing, I might notice that sometimes my initial thoughts don't make sense, are duplicates of one another, or are a bit bare, and need to be fleshed out, and so I will add, rewrite, reorder, swap and remove ideas - both for clarity and definition. Through editing, as well, my own understanding of a subject is also updated, which can also lead to new insights.
 
-<!-- Communicate my ideas more clearly: -->
-<!-- Both of these processes are important, and they take a bit of time to process, -->
 So it's not just about *having the thought*, it's also taking the next steps of writing them down, editing and figuring out if it's right or wrong, and then understanding why, and then transforming them into a new form., and then being able to clearly articulate these thoughts.
 
 
 # Blog post formats (to begin with):
 
-<!-- 
-- Structure
--->
 Sometimes, I get a bit lost in the process of writing, so I thought it would also be good to set some initial boundaries. This is also so that I'm not approaching the page entirely blank, and I have a format to get started with. This is subject to change in the future, of course, after I use it and see what works and what doesn't.
 I want to have different "categories" of blog posts:
 

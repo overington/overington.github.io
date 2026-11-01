@@ -1,9 +1,7 @@
 +++
-title = "About"
-description = "Learn more about this theme and how it was built"
+title = "Curriculum Vitae"
+description = "Samuel Overington"
 +++
-
-# Samuel Overington - Curriculum Vitae
 
 
 ## **Dimension Studio, London UK** (Nov 2023 -- Present)
