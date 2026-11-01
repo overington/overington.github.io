@@ -10,6 +10,8 @@ tags = ["writing", "notes"]
 [extra.hero]
 images = ["content/blog/welcome/atsuma-no-kuma.jpg"]
 height = "header"
+tint_colour = "white"
+tint_amount = 0.2
 text_color = "inverse"
 +++
 

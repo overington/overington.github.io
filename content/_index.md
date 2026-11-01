@@ -7,7 +7,7 @@ images=[
 ]
 height="header"
 slider=true
-lighten=0.95
+tint_amount=0.95
 class_name="home-hero"
 +++
 

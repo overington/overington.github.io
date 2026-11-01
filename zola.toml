@@ -16,13 +16,10 @@ taxonomies = [
     { name = "tags", render = true, feed = false },
 ]
 
-[markdown]
-
 [markdown.highlighting]
 theme = "catppuccin-mocha"
 
 [extra]
-# Put all your custom variables here
 # Navigation
 show_nav = true
 nav_items = [
@@ -31,8 +28,5 @@ nav_items = [
     { path = "/blog", name = "Blog" },
     { path = "/about", name = "About" }
 ]
-
-# Override theme image resize defaults here when needed, for example:
-# [extra.picolo.image_defaults]
-# media_text_width = 1600
-# media_text_height = 1200
+# Content
+container_width = "2xl"
