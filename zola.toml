@@ -28,5 +28,8 @@ nav_items = [
     { path = "/blog", name = "Blog" },
     { path = "/about", name = "About" }
 ]
-# Content
-container_width = "2xl"
+# Content widths. The default applies to pages, posts, sections, and taxonomies.
+container_width = "pico"
+# Optional: constrain page/section headings and hero header content independently.
+# Defaults to the resolved container_width when unset.
+# header_content_width = "xl"
