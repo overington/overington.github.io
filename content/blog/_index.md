@@ -6,6 +6,7 @@ template = "section.html"
 page_template = "page-post.html"
 [extra]
 container_width = "4xl"
+page_container_width = "xl"
 +++
 
 Welcome to the blog! Here you'll find articles, tutorials, and updates.
