@@ -11,7 +11,8 @@ tint_amount=0.95
 class_name="home-hero"
 +++
 
-{%- <ui.media_text height="header" path="media/photos/shiminami.jpg"> %}
+{% <ui.media_text height="header" modal={false} path="media/photos/shiminami.jpg"> %}
+
 ## Hey, I'm Samuel!
 
 I'm a Senior Machine Learning Engineer at [Dimension Studio](https://dimensionstudio.co/), turning cutting-edge research into practical tools for virtual production. My work extends across the wider computer vision landscape, including real-time depth and segmentation, multi-object tracking, and model optimisations for low-latency and real-time inference.

@@ -15,7 +15,7 @@ build: check
 	$(ZOLA) build
 
 dev: check
-	$(ZOLA) serve
+	$(ZOLA) serve --drafts
 
 deploy-preview: build
 	@test -n "$(DEPLOY_HOST)" || (echo "Set DEPLOY_HOST"; exit 1)

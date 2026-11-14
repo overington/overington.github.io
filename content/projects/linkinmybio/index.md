@@ -4,7 +4,7 @@ date = 2024-12-07
 description = "A participatory opera set on a South London bus, exploring online radicalisation, misinformation and algorithmic amplification alongside racism, migration, class and belonging. I was its creative technologist."
 
 [extra]
-container_width = "3xl"
+# container_width = "3xl"
 image = "limb-header.jpg"
 image_alt = "A woman sitting on a chair on a stage, looking at the chair next to her"
 
