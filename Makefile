@@ -1,4 +1,5 @@
 ZOLA ?= zola
+ZOLA_CHECK_FLAGS ?=
 SSH_PORT ?= 22
 DEPLOY_HOST ?=
 DEPLOY_PATH ?=
@@ -9,7 +10,7 @@ theme:
 	git submodule update --init --recursive
 
 check: theme
-	$(ZOLA) check
+	$(ZOLA) check $(ZOLA_CHECK_FLAGS)
 
 build: check
 	$(ZOLA) build
@@ -20,9 +21,9 @@ dev: check
 deploy-preview: build
 	@test -n "$(DEPLOY_HOST)" || (echo "Set DEPLOY_HOST"; exit 1)
 	@test -n "$(DEPLOY_PATH)" || (echo "Set DEPLOY_PATH"; exit 1)
-	rsync -avzn --delete -e "ssh -p $(SSH_PORT)" public/ "$(DEPLOY_HOST):$(DEPLOY_PATH)/"
+	rsync -avzn --delete --exclude='/.well-known/' -e "ssh -p $(SSH_PORT)" public/ "$(DEPLOY_HOST):$(DEPLOY_PATH)/"
 
 deploy: build
 	@test -n "$(DEPLOY_HOST)" || (echo "Set DEPLOY_HOST"; exit 1)
 	@test -n "$(DEPLOY_PATH)" || (echo "Set DEPLOY_PATH"; exit 1)
-	rsync -avz --delete -e "ssh -p $(SSH_PORT)" public/ "$(DEPLOY_HOST):$(DEPLOY_PATH)/"
+	rsync -avz --delete --exclude='/.well-known/' -e "ssh -p $(SSH_PORT)" public/ "$(DEPLOY_HOST):$(DEPLOY_PATH)/"

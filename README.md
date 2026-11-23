@@ -43,6 +43,14 @@ make check
 make build
 ```
 
+By default, the check includes external links. If external sites block automated requests, you can skip only those checks while still checking internal links:
+
+```sh
+make build ZOLA_CHECK_FLAGS=--skip-external-links
+```
+
+The same flag can be passed to `make check`, `make deploy-preview`, or `make deploy`. Check skipped external links separately.
+
 The generated website is written to `public/`. To preview changes while editing, run:
 
 ```sh
@@ -121,7 +129,7 @@ make deploy-preview \
   SSH_PORT=2222
 ```
 
-**Deployment warning:** `make deploy` runs `rsync --delete`, which removes files from the destination if they are not present in the generated `public/` directory. Only deploy to a directory dedicated to this site, and preserve any hosting files that must remain there. The preview target is a dry run and does not upload or delete files.
+**Deployment warning:** `make deploy` runs `rsync --delete`, which removes files from the destination if they are not present in the generated `public/` directory. Both deployment targets exclude the destination's `.well-known/` directory to preserve hosting-managed certificate validation; files under `public/.well-known/` are not deployed by these targets. Only deploy to a directory dedicated to this site, and preserve any other hosting files that must remain there. The preview target is a dry run and does not upload or delete files.
 
 ## Before publishing
 
