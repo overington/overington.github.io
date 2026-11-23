@@ -133,7 +133,7 @@ make deploy-preview \
 
 ## Before publishing
 
-Set `base_url` in `config.toml` to the site's canonical production URL. It currently uses `https://example.com`; update it to `https://samueloverington.com` (or the canonical `www` URL, if preferred) before building for production. Zola uses this value when generating URLs.
+Set `base_url` in `zola.toml` to the site's canonical production URL. It is currently `https://samueloverington.com`. Zola uses this value when generating URLs; the GitHub Pages workflow overrides it with the Pages URL.
 
 ## Theme updates
 
@@ -148,6 +148,8 @@ git add themes/picolo
 git commit -m "Update Picolo theme"
 ```
 
-## Future automation
+## GitHub Pages
 
-The current publishing workflow is intended to run from a local development machine. It can later be moved to GitHub Actions by checking out this repository with submodules enabled, installing a pinned Zola version, running the same checks and build, and deploying `public/` over SSH with `rsync`. Keep deployment credentials in GitHub Actions secrets rather than in this repository.
+The workflow in `.github/workflows/deploy-pages.yml` checks out the theme submodule, checks internal links, and builds with Zola 0.23.6. It uses GitHub Pages' configured URL as the build's base URL, so the default `github.io` address and a future custom domain can each generate appropriate links. External links are not checked by this workflow.
+
+Pushes to `v2` build a Pages artifact without publishing it; pushes to `main` build and deploy the site. The workflow can also be started manually, but only a run on `main` deploys. The repository's Pages source must be set to GitHub Actions. A build artifact is not a public preview site; publishing to `main` replaces the current GitHub Pages site.
